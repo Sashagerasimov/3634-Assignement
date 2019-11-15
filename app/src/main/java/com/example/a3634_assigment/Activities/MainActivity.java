@@ -10,7 +10,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;

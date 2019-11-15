@@ -33,7 +33,7 @@ public class NotesDetailActivity extends AppCompatActivity {
 
     private TextView title;
     private TextView content;
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
