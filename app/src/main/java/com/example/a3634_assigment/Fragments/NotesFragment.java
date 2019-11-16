@@ -21,6 +21,7 @@ import com.example.a3634_assigment.Activities.CreateNoteActivity;
 import com.example.a3634_assigment.Adapters.NotesAdapter;
 import com.example.a3634_assigment.Models.Notes;
 import com.example.a3634_assigment.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,8 @@ public class NotesFragment extends Fragment {
 
     private RecyclerView recyclerView;
     public NotesAdapter notesAdapter;
-    public ImageButton createNote;
+    //public ImageButton createNote;
+    public FloatingActionButton createNote;
     public static ArrayList<Notes> notesList = new ArrayList<>();
 
 
@@ -48,7 +50,7 @@ public class NotesFragment extends Fragment {
         notesAdapter.setData(notesList);
         recyclerView.setAdapter(notesAdapter);
 
-        createNote = (ImageButton) view.findViewById(R.id.button);
+        createNote = (FloatingActionButton) view.findViewById(R.id.button);
         createNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

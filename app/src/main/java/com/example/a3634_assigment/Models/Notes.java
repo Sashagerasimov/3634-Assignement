@@ -1,16 +1,27 @@
 package com.example.a3634_assigment.Models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//@Entity
 public class Notes {
 
+  //  @PrimaryKey
     private static int id = 0;
 
     private String title,
             content;
-
     public Notes() {
     }
 
-    public Notes(int id, String title, String content) {
+    public Notes(int NotesId, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;

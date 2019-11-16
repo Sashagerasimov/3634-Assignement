@@ -21,6 +21,7 @@
         <activity android:name=".Activities.SettingsActivity" ></activity>
         <activity android:name=".Activities.PlanetActivity"></activity>
         <activity android:name=".Activities.CreateNoteActivity"></activity>
+        <activity android:name=".Activities.NotesDetailActivity"></activity>
     </application>
 
 </manifest>
