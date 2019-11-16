@@ -10,6 +10,9 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.a3634_assigment.Activities.PlanetActivity;
+import com.example.a3634_assigment.Adapters.PlanetAdapter;
 import com.example.a3634_assigment.Models.Body;
 import com.example.a3634_assigment.Models.BodyResponse;
 import com.example.a3634_assigment.R;
@@ -28,7 +32,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LearnFragment extends Fragment {
-    private Button planetButton;
+    private RecyclerView recyclerView;
 
     public LearnFragment() {
 
@@ -38,6 +42,11 @@ public class LearnFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_learn, container, false);
+        recyclerView = view.findViewById(R.id.planet_rv);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        final PlanetAdapter planetAdapter = new PlanetAdapter();
 
         String solarUrl = "https://api.le-systeme-solaire.net/rest/bodies/";
 
@@ -50,8 +59,21 @@ public class LearnFragment extends Fragment {
                 Gson gson = new Gson();
                 BodyResponse bodyResponse = gson.fromJson(response, BodyResponse.class);
                 List<Body> bodies = bodyResponse.getBodies();
-                Body test = bodies.get(264);
-                System.out.println(test.getName());
+                ArrayList<Body> planets = new ArrayList<>();
+                planets.add(bodies.get(238));
+                planets.add(bodies.get(239));
+                planets.add(bodies.get(240));
+                planets.add(bodies.get(241));
+                planets.add(bodies.get(242));
+                planets.add(bodies.get(243));
+                planets.add(bodies.get(244));
+                planets.add(bodies.get(219));
+                planets.add(bodies.get(208));
+                planets.add(bodies.get(199));
+
+                planetAdapter.setData(planets);
+                recyclerView.setAdapter(planetAdapter);
+
             }
         };
 
@@ -64,6 +86,7 @@ public class LearnFragment extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, solarUrl, responseListener, errorListener);
         requestQueue.add(stringRequest);
 
+        /*
         planetButton = view.findViewById(R.id.planet);
         planetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +95,9 @@ public class LearnFragment extends Fragment {
                 getActivity().startActivity(myIntent);
             }
         });
+
+         */
+
 
         return view;
     }
