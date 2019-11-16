@@ -48,6 +48,7 @@ public class NotesFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
         notesAdapter.setData(notesList);
+
         recyclerView.setAdapter(notesAdapter);
 
         createNote = (FloatingActionButton) view.findViewById(R.id.button);

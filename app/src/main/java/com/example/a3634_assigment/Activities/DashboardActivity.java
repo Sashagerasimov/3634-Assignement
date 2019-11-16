@@ -7,12 +7,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;
@@ -20,32 +17,14 @@ import com.example.a3634_assigment.Fragments.NotesFragment;
 import com.example.a3634_assigment.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
-    public Button rego;
-    // implements NavigationView.OnNavigationItemSelectedListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
 
-
-            rego = findViewById(R.id.button);
-            rego.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Context context = v.getContext();
-
-                    Intent intent = new Intent(context, RegisterActivity.class);
-                    context.startActivity(intent);
-                }
-            });
-        }
-    }
-
-
-        /*
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -81,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                         new NotesFragment()).commit();
                 break;
             case R.id.nav_settings:
-                Intent myIntent = new Intent(MainActivity.this, SettingsActivity.class);
-                MainActivity.this.startActivity(myIntent);
+                Intent myIntent = new Intent(DashboardActivity.this, SettingsActivity.class);
+                DashboardActivity.this.startActivity(myIntent);
                 break;
 
 
@@ -101,7 +80,4 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
-         */
-
-
+}
