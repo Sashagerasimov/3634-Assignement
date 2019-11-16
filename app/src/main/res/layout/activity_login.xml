@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.LoginActivity">
+    tools:context=".Activities.MainActivity">
 
     <EditText
-        android:id="@+id/mUsername"
+        android:id="@+id/un"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="105dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/mPassword"
+        android:id="@+id/pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="107dp"
@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/un" />
 
     <Button
         android:id="@+id/button"
@@ -44,9 +44,8 @@
         android:layout_marginStart="179dp"
         android:layout_marginTop="216dp"
         android:layout_marginBottom="88dp"
-        android:onClick="onRegisterButtonPress"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/pw" />
 </androidx.constraintlayout.widget.ConstraintLayout>
