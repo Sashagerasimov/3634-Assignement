@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;
@@ -21,8 +22,13 @@ import com.example.a3634_assigment.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    //LOGIN CLASS
+
     private DrawerLayout drawer;
     public Button rego;
+    public EditText username;
+    public EditText password;
+
     // implements NavigationView.OnNavigationItemSelectedListener
 
     @Override
@@ -32,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             rego = findViewById(R.id.button);
+            username = findViewById(R.id.un);
+            password = findViewById(R.id.pw);
             rego.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
