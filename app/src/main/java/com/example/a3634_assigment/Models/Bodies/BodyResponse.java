@@ -1,4 +1,4 @@
-package com.example.a3634_assigment.Models;
+package com.example.a3634_assigment.Models.Bodies;
 
 import java.util.ArrayList;
 

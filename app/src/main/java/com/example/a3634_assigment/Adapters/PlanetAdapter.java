@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a3634_assigment.Activities.PlanetActivity;
-import com.example.a3634_assigment.Models.Body;
+import com.example.a3634_assigment.Models.Bodies.Body;
 import com.example.a3634_assigment.R;
 
 import java.util.ArrayList;

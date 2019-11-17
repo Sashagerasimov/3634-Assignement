@@ -14,12 +14,13 @@ public class User {
     private int score;
     private int avatar;
 
-    @Ignore
+
     public User(@NonNull  String username, String password) {
         this.username = username;
         this.password = password;
     }
 
+    @Ignore
     public User(@NonNull  String username, String password, int score, int avatar) {
         this.username = username;
         this.password = password;

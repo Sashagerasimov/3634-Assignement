@@ -60,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                 User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
                 SessionInfo.mUserDatabase.userDao().insertOneUser(user);
                 SessionInfo.currentUser = user;
+
             }
         }) .start();
 
