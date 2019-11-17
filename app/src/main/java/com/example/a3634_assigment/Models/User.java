@@ -1,13 +1,25 @@
 package com.example.a3634_assigment.Models;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class User {
+    @NonNull
+    @PrimaryKey
     private String username;
 
     private String password;
     private int score;
     private int avatar;
+
+    @Ignore
+    public User(@NonNull  String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public User(@NonNull  String username, String password, int score, int avatar) {
         this.username = username;
