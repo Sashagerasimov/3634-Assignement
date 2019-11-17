@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        SessionInfo.createDB(this.getApplicationContext());
         //rego = findViewById(R.id.register);
 
 

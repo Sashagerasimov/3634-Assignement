@@ -17,8 +17,8 @@ import com.example.a3634_assigment.R;
 public class RegisterActivity extends AppCompatActivity {
 
 
-    public final static String NEW_USERNAME ="com.example.stud_ie_app.new_username";
-    public final static String NEW_PASSWORD ="com.example.stud_ie_app.new_password";
+    //public final static String NEW_USERNAME ="com.example.stud_ie_app.new_username";
+    //public final static String NEW_PASSWORD ="com.example.stud_ie_app.new_password";
 
     private TextView newUsername;
     private TextView newPassword;
@@ -45,18 +45,23 @@ public class RegisterActivity extends AppCompatActivity {
          */
     }
 
-    //switches to dashboard activity
+    //passes data to user database and switches to dashboard activity
     public void press(View view){
+        /*
+        User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
+        SessionInfo.mUserDatabase.userDao().insertOneUser(user);
+        SessionInfo.currentUser = user;
+
+        /*
+         */
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Bundle bundle = getIntent().getExtras();
                 User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
                 SessionInfo.mUserDatabase.userDao().insertOneUser(user);
                 SessionInfo.currentUser = user;
             }
         }) .start();
-
 
 
         Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);

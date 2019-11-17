@@ -10,7 +10,6 @@ public class User {
     @NonNull
     @PrimaryKey
     private String username;
-
     private String password;
     private int score;
     private int avatar;
