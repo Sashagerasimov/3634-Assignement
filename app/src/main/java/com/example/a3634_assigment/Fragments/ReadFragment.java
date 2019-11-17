@@ -46,6 +46,7 @@ public class ReadFragment extends Fragment {
                 String string = (response.substring(response.lastIndexOf("extract")+10,response.length()-5));
                 string = string.replace("\\n", " ");
                 description.setText(string);
+
             }
         };
 

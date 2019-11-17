@@ -68,7 +68,7 @@ public class LearnFragment extends Fragment {
 
                 planetAdapter.setData(planets);
                 recyclerView.setAdapter(planetAdapter);
-
+                
             }
         };
 
