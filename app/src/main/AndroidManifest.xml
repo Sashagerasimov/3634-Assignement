@@ -11,13 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.DashboardActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activities.AvatarActivity"></activity>
+        <activity
+            android:name=".Activities.DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity
-            android:name=".Activities.MainActivity">
-
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +28,6 @@
         <activity android:name=".Activities.PlanetActivity" />
         <activity android:name=".Activities.CreateNoteActivity" />
         <activity android:name=".Activities.NotesDetailActivity" />
-
-
-
-
     </application>
 
 </manifest>

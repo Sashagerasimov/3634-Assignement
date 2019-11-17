@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;
 import com.example.a3634_assigment.Fragments.NotesFragment;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SessionInfo.createDB(this);
 
             rego = findViewById(R.id.button);
             username = findViewById(R.id.un);
@@ -44,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
-
                     Intent intent = new Intent(context, RegisterActivity.class);
                     context.startActivity(intent);
                 }

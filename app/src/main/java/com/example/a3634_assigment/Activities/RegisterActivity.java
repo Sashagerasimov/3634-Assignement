@@ -17,8 +17,8 @@ import com.example.a3634_assigment.R;
 public class RegisterActivity extends AppCompatActivity {
 
 
-    //public final static String NEW_USERNAME ="com.example.stud_ie_app.new_username";
-    //public final static String NEW_PASSWORD ="com.example.stud_ie_app.new_password";
+    public final static String NEW_USERNAME = "com.example.a3634_assigment.new_username";
+    public final static String NEW_PASSWORD = "com.example.a3634_assigment.new_password";
 
     private TextView newUsername;
     private TextView newPassword;
@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     //passes data to user database and switches to dashboard activity
-    public void press(View view){
+    public void press(View view) {
         /*
         User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
         SessionInfo.mUserDatabase.userDao().insertOneUser(user);
@@ -54,24 +54,32 @@ public class RegisterActivity extends AppCompatActivity {
 
         /*
          */
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
+
+
+        Intent intent = new Intent(RegisterActivity.this, AvatarActivity.class);
+        intent.putExtra(NEW_USERNAME, newUsername.getText().toString());
+        intent.putExtra(NEW_PASSWORD, newPassword.getText().toString());
+        if (intent != null) {
+            startActivity(intent);
+        } else {
+            System.out.println("hello");
+        }
+
+
+    }
+
+    public void ignoreRegister(View view) {
+        Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
+        startActivity(intent);
+
+    }
+}
+
+/*
+User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
                 SessionInfo.mUserDatabase.userDao().insertOneUser(user);
                 SessionInfo.currentUser = user;
 
             }
         }) .start();
-
-
-        Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
-        startActivity(intent);
-    }
-
-    public void ignoreRegister (View view) {
-        Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
-        startActivity(intent);
-    }
-
-}
+ */
