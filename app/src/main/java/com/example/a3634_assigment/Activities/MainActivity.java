@@ -14,24 +14,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;
 import com.example.a3634_assigment.Fragments.NotesFragment;
+import com.example.a3634_assigment.Models.User;
 import com.example.a3634_assigment.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
     //LOGIN CLASS
 
     private DrawerLayout drawer;
     public Button rego;
-    public EditText username;
-    public EditText password;
+    public TextInputLayout username;
+    public TextInputLayout password;
+    public Button login;
+    public TextView message;
 
     // implements NavigationView.OnNavigationItemSelectedListener
-
+    //https://codinginflow.com/tutorials/android/textinputlayout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,19 +45,89 @@ public class MainActivity extends AppCompatActivity {
 
         SessionInfo.createDB(this);
 
-            rego = findViewById(R.id.button);
-            username = findViewById(R.id.un);
-            password = findViewById(R.id.pw);
-            rego.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        rego = findViewById(R.id.button);
+        username = findViewById(R.id.un);
+        password = findViewById(R.id.pw);
+        login = findViewById(R.id.login);
+        message = findViewById(R.id.message);
+        //message.s
+        rego.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, RegisterActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        /*login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().toString());
+
+                if (loginUser.getPassword().equals(password.getEditText().toString())) {
                     Context context = v.getContext();
-                    Intent intent = new Intent(context, RegisterActivity.class);
+                    Intent intent = new Intent(context, DashboardActivity.class);
                     context.startActivity(intent);
+                    SessionInfo.currentUser = loginUser;
                 }
-            });
+            }
+        });
+
+         */
+    }
+
+    private boolean validateUsername() {
+        String usernameInput = username.getEditText().getText().toString().trim();
+
+        if (usernameInput.isEmpty()) {
+            username.setError("Field can't be empty");
+            return false;
+
+        } else {
+            username.setError(null);
+            return true;
         }
     }
+
+    private boolean validatePassword() {
+        String pwInput = password.getEditText().getText().toString().trim();
+
+        if (pwInput.isEmpty()) {
+            password.setError("Field can't be empty");
+            return false;
+
+        } else {
+            password.setError(null);
+            return true;
+        }
+    }
+
+    public void confirmInput(View v) {
+        if (!validateUsername() | !validatePassword()) {
+            User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().toString());
+
+            if (loginUser.getPassword().equals(password.getEditText().toString())) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, DashboardActivity.class);
+                context.startActivity(intent);
+                SessionInfo.currentUser = loginUser;
+            }
+        }
+            else{
+                Toast.makeText(this, "Credentials Incorrect. Please try again", Toast.LENGTH_SHORT).show();
+
+
+            }
+
+
+
+            return;
+        }
+
+    }
+
+
 
 
         /*

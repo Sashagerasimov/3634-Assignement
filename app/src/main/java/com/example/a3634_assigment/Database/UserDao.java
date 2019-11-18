@@ -18,6 +18,8 @@ public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<User> users);
 
-   // @Query("SELECT * FROM User WHERE username = :username")
-   // User fetchOneUserByUserName (String userName);
-}
+   @Query("SELECT * FROM User WHERE username = :username")
+   User returnOneUserByUserName (String username);
+    }
+
+
