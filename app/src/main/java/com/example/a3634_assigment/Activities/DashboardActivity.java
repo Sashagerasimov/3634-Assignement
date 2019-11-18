@@ -42,6 +42,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                     new LearnFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_learn);
         }
+
+
     }
 
     @Override

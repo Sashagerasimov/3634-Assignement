@@ -15,12 +15,16 @@ public class User {
     private int avatar;
 
 
-    public User(@NonNull  String username, String password) {
+    @Ignore
+    public User(@NonNull  String username, String password, int avatar) {
         this.username = username;
         this.password = password;
+        this.score = 0;
+        this.avatar = avatar;
+
     }
 
-    @Ignore
+
     public User(@NonNull  String username, String password, int score, int avatar) {
         this.username = username;
         this.password = password;

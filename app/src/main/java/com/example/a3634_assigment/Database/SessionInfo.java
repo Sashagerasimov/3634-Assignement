@@ -7,7 +7,7 @@ import androidx.room.Room;
 import com.example.a3634_assigment.Models.User;
 
 public class SessionInfo {
-    public static User currentUser = new User("username", "password");
+    public static User currentUser = new User("username", "password", 1);
     public static UserDb mUserDatabase;
 
     public static void createDB(Context context) {
