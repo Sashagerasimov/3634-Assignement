@@ -20,6 +20,7 @@ public class AvatarActivity extends AppCompatActivity {
     }
 
 
+    //Officially registers user
     public void onClickRegister(View view){
         new Thread(new Runnable() {
             @Override
@@ -35,8 +36,9 @@ public class AvatarActivity extends AppCompatActivity {
                     SessionInfo.currentUser = user;
                 }
             }
-}) .start();
+        }) .start();
 
+        //takes user to Main Page/Dashboard
         Intent intent = new Intent(AvatarActivity.this, DashboardActivity.class);
         startActivity(intent);
     }

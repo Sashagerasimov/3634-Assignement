@@ -33,29 +33,10 @@ public class RegisterActivity extends AppCompatActivity {
         newPassword = findViewById(R.id.newPassword);
         submit = findViewById(R.id.submit);
 
-        /*
-        submit.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                Context context = view.getContext();
-                Intent intent = new Intent(context, RegisterActivity.class);
-                context.startActivity(intent);
-            }
-        });
-
-         */
     }
 
-    //passes data to user database and switches to dashboard activity
+    //passes data to user database and switches to activity for user to choose avatar
     public void press(View view) {
-        /*
-        User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
-        SessionInfo.mUserDatabase.userDao().insertOneUser(user);
-        SessionInfo.currentUser = user;
-
-        /*
-         */
-
-
         Intent intent = new Intent(RegisterActivity.this, AvatarActivity.class);
         intent.putExtra(NEW_USERNAME, newUsername.getText().toString());
         intent.putExtra(NEW_PASSWORD, newPassword.getText().toString());
@@ -64,22 +45,11 @@ public class RegisterActivity extends AppCompatActivity {
         } else {
             System.out.println("hello");
         }
-
-
     }
 
+    //ignoring register
     public void ignoreRegister(View view) {
         Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
         startActivity(intent);
-
     }
 }
-
-/*
-User user = new User(newUsername.getText().toString(), newPassword.getText().toString());
-                SessionInfo.mUserDatabase.userDao().insertOneUser(user);
-                SessionInfo.currentUser = user;
-
-            }
-        }) .start();
- */

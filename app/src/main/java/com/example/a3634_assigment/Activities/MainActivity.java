@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
                 else if(username.getEditText().getText().toString().equals("")) {
                     // Missing Username Field
-                    username.setError("Please fill out the username field");
+                    username.setError("Username field empty!");
                 } else if (password.getEditText().getText().toString().equals("")) {
                     // Missing Password Field
-                    password.setError("Please fill out the password field");
+                    password.setError("Password field empty!");
                 }
                 else if (loginUser.getPassword().equals(password.getEditText().getText().toString())) {
                     Context context = v.getContext();
