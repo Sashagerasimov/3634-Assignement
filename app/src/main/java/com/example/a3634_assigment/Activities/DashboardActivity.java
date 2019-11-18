@@ -10,15 +10,22 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;
 import com.example.a3634_assigment.Fragments.NotesFragment;
+import com.example.a3634_assigment.Models.Images;
 import com.example.a3634_assigment.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+    public TextView headerUser;
+    public ImageView headerAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +50,13 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             navigationView.setCheckedItem(R.id.nav_learn);
         }
 
-
+        //set username and avatar picture in header
+        View headerView = navigationView.getHeaderView(0);
+        headerUser = (TextView) headerView.findViewById(R.id.navUserName);
+        headerAvatar = (ImageView) headerView.findViewById(R.id.currentAvatar);
+        headerUser.setText(SessionInfo.currentUser.getUsername());
+        headerAvatar.setImageResource(Images.avatars[SessionInfo.currentUser.getAvatar()]);
+        //
     }
 
     @Override
