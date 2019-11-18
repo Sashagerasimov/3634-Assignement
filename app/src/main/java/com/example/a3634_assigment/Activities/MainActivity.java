@@ -60,72 +60,66 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*login.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().toString());
+                User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().getText().toString());
 
-                if (loginUser.getPassword().equals(password.getEditText().toString())) {
+                if (loginUser == null){
+                    Toast.makeText(getApplicationContext(), "Credentials incorrect or User doesn't exist", Toast.LENGTH_SHORT).show();
+                }
+
+                else if(username.getEditText().getText().toString().equals("")) {
+                    // Missing Username Field
+                    username.setError("Please fill out the username field");
+                } else if (password.getEditText().getText().toString().equals("")) {
+                    // Missing Password Field
+                    password.setError("Please fill out the password field");
+                }
+                else if (loginUser.getPassword().equals(password.getEditText().getText().toString())) {
                     Context context = v.getContext();
                     Intent intent = new Intent(context, DashboardActivity.class);
                     context.startActivity(intent);
                     SessionInfo.currentUser = loginUser;
                 }
+
             }
         });
 
-         */
+
     }
-
-    private boolean validateUsername() {
-        String usernameInput = username.getEditText().getText().toString().trim();
-
-        if (usernameInput.isEmpty()) {
-            username.setError("Field can't be empty");
-            return false;
-
-        } else {
-            username.setError(null);
-            return true;
-        }
-    }
-
-    private boolean validatePassword() {
-        String pwInput = password.getEditText().getText().toString().trim();
-
-        if (pwInput.isEmpty()) {
-            password.setError("Field can't be empty");
-            return false;
-
-        } else {
-            password.setError(null);
-            return true;
-        }
-    }
-
+}
+/*
     public void confirmInput(View v) {
-        if (!validateUsername() | !validatePassword()) {
-            User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().toString());
 
-            if (loginUser.getPassword().equals(password.getEditText().toString())) {
-                Context context = v.getContext();
-                Intent intent = new Intent(context, DashboardActivity.class);
-                context.startActivity(intent);
+            User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().getText().toString());
+
+        if(username.getEditText().getText().toString().equals("")) {
+            // Missing Username Field
+            username.setError("Please fill out the username field");
+            } else if (password.getEditText().getText().toString().equals("")) {
+            // Missing Password Field
+            password.setError("Please fill out the password field");
+            }
+            else if (loginUser == null){
+                Toast.makeText(this, "Credentials incorrect or User doesn't exist", Toast.LENGTH_SHORT).show();
+            }
+            else if (loginUser.getPassword().equals(password.getEditText().getText().toString())) {
+
+                Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                startActivity(intent);
                 SessionInfo.currentUser = loginUser;
             }
-        }
-            else{
-                Toast.makeText(this, "Credentials Incorrect. Please try again", Toast.LENGTH_SHORT).show();
-
-
+            else {
+                Toast.makeText(this, "Credentials Incorrect. Please try again", Toast.LENGTH_LONG).show();
             }
 
-
-
-            return;
+        return;
         }
 
     }
+
+ */
 
 
 
