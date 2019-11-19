@@ -80,19 +80,7 @@ public class LearnFragment extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, solarUrl, responseListener, errorListener);
         requestQueue.add(stringRequest);
 
-        /*
-        planetButton = view.findViewById(R.id.planet);
-        planetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(getContext(), PlanetActivity.class);
-                getActivity().startActivity(myIntent);
-            }
-        });
-
-         */
-
-
+        recyclerView.setHasFixedSize(true);
         return view;
     }
 }
