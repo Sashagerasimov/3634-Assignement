@@ -1,6 +1,8 @@
 package com.example.a3634_assigment.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +28,7 @@ import org.w3c.dom.Text;
 public class ReadFragment extends Fragment {
     private TextView title;
     private TextView description;
+    private TextView wiki;
 
     public ReadFragment() {
 
@@ -38,9 +41,10 @@ public class ReadFragment extends Fragment {
 
         description = view.findViewById(R.id.description);
         title = view.findViewById(R.id.wiki_title);
+        wiki = view.findViewById(R.id.wiki_link);
         title.setText(PlanetActivity.name);
 
-        String wikiUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+PlanetActivity.name+"%20(planet)";
+        final String wikiUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+PlanetActivity.name+"%20(planet)";
 
         Context context = getContext();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
@@ -63,6 +67,14 @@ public class ReadFragment extends Fragment {
         };
         StringRequest stringRequest = new StringRequest(Request.Method.GET, wikiUrl, responseListener, errorListener);
         requestQueue.add(stringRequest);
+
+        wiki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/"+PlanetActivity.name+"%20(planet)"));
+                startActivity(browserIntent);
+            }
+        });
 
         return view;
     }

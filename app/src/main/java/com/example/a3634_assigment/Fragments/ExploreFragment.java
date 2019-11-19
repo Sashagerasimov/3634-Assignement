@@ -79,6 +79,7 @@ public class ExploreFragment extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, nasaImagesUrl, responseListener, errorListener);
         requestQueue.add(stringRequest);
 
+        recyclerView.setHasFixedSize(true);
         return view;
     }
 }

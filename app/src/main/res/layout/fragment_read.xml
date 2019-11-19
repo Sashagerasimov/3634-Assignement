@@ -7,6 +7,7 @@
     android:background="#FFFFFF">
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,19 @@
                 android:paddingBottom="20dp"
                 android:text="Loading..."
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/wiki_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp"
+                android:text="@string/wiki"
+                android:textStyle="italic" />
 
         </LinearLayout>
     </ScrollView>
