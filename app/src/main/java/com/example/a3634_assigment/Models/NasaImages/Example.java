@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName;
 public class Example {
 
     @SerializedName("collection")
-    @Expose
     private Collection collection;
 
     public Collection getCollection() {

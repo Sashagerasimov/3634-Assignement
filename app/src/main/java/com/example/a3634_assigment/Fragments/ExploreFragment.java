@@ -50,7 +50,7 @@ public class ExploreFragment extends Fragment {
 
         final ExploreImagesAdapter exploreImagesAdapter = new ExploreImagesAdapter();
 
-        String nasaImagesUrl = "https://images-api.nasa.gov/search?q=" + PlanetActivity.name + "&media_type=image";
+        String nasaImagesUrl = "https://images-api.nasa.gov/search?q=" + PlanetActivity.name + "&media_type=image&year_end=2018";
         Context context = getContext();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
