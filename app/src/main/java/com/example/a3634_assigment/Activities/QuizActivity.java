@@ -145,7 +145,7 @@ public class QuizActivity extends AppCompatActivity {
             correctCount++;
             currentScore.setVisibility(View.VISIBLE);
             currentScore.setText(String.valueOf(score));
-            SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
+
             //refreshQuestion();
             //display the increased score
         }
@@ -196,6 +196,7 @@ public class QuizActivity extends AppCompatActivity {
     private void finishQuiz() {
         correctScore.setVisibility(View.VISIBLE);
         correctScore.setText("Your Score: " + correctCount + " / 8 ");
+        SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
         mark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
