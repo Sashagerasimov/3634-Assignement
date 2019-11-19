@@ -27,7 +27,7 @@ public class PlanetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_planet);
 
         Intent intent = getIntent();
-        String englishName = intent.getStringExtra("englishName");
+        String englishName = intent.getStringExtra("Name");
         getSupportActionBar().setTitle(englishName);
         name = englishName;
 
