@@ -44,12 +44,8 @@ public class NotesDetailActivity extends AppCompatActivity {
 
         final Notes thisNote = getNotesById(notesID);
 
-
-        //final Menu currentFood = Database.getFoodById(foodPosition);
-
         title = findViewById(R.id.dTitle);
         content = findViewById(R.id.dContent);
-
 
         title.setText(thisNote.getTitle());
         content.setText(thisNote.getContent());

@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,7 +31,7 @@ import java.util.List;
 public class NotesFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    public NotesAdapter notesAdapter;
+    public static NotesAdapter notesAdapter;
     //public ImageButton createNote;
     public FloatingActionButton createNote;
     public static ArrayList<Notes> notesList = new ArrayList<>();
@@ -37,16 +39,14 @@ public class NotesFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        final NotesAdapter notesAdapter = new NotesAdapter();
-
-
-
+        notesAdapter = new NotesAdapter();
 
         //set Recycler View
         View view = inflater.inflate(R.layout.fragment_notebook, container, false);
         recyclerView = view.findViewById(R.id.rv_notes);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
+        new ItemTouchHelper(itemTouchCallback).attachToRecyclerView(recyclerView);
         notesAdapter.setData(notesList);
 
         recyclerView.setAdapter(notesAdapter);
@@ -59,11 +59,8 @@ public class NotesFragment extends Fragment {
 
                 Intent intent = new Intent(context, CreateNoteActivity.class);
                 context.startActivity(intent);
-
-
             }
             });
-
 
     return view;
     }
@@ -72,7 +69,20 @@ public class NotesFragment extends Fragment {
         return notesList.get(catsID2);
     }
 
-    }
+    ItemTouchHelper.SimpleCallback itemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            notesList.remove(viewHolder.getAdapterPosition());
+            notesAdapter.notifyDataSetChanged();
+        }
+    };
+
+}
 
 
 
