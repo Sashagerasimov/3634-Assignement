@@ -1,5 +1,7 @@
 package com.example.a3634_assigment.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.a3634_assigment.Activities.ExploreImageActivity;
 import com.example.a3634_assigment.Models.NasaImages.Item;
 import com.example.a3634_assigment.R;
 
@@ -27,7 +30,6 @@ public class ExploreImagesAdapter extends RecyclerView.Adapter<ExploreImagesAdap
 
         public View view;
         public ImageView picture;
-        public TextView test;
         public ImageViewHolder(View v) {
             super(v);
             view = v;
@@ -46,6 +48,18 @@ public class ExploreImagesAdapter extends RecyclerView.Adapter<ExploreImagesAdap
     public void onBindViewHolder(@NonNull final ImageViewHolder holder, final int position) {
         final Item currentItem = images.get(position);
         Glide.with(holder.itemView.getContext()).load(currentItem.getLinks().get(0).getHref()).into(holder.picture);
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+
+                Intent explicitIntent = new Intent(context, ExploreImageActivity.class);
+                explicitIntent.putExtra("url", currentItem.getLinks().get(0).getHref());
+                explicitIntent.putExtra("title", currentItem.getData().get(0).getTitle());
+                context.startActivity(explicitIntent);
+            }
+        });
     }
     @Override
     public int getItemCount() {

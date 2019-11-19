@@ -21,7 +21,10 @@ import com.example.a3634_assigment.Activities.PlanetActivity;
 import com.example.a3634_assigment.R;
 import com.google.gson.Gson;
 
+import org.w3c.dom.Text;
+
 public class ReadFragment extends Fragment {
+    private TextView title;
     private TextView description;
 
     public ReadFragment() {
@@ -34,6 +37,8 @@ public class ReadFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_read, container, false);
 
         description = view.findViewById(R.id.description);
+        title = view.findViewById(R.id.wiki_title);
+        title.setText(PlanetActivity.name);
 
         String wikiUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+PlanetActivity.name+"%20(planet)";
 
@@ -44,7 +49,7 @@ public class ReadFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 String string = (response.substring(response.lastIndexOf("extract")+10,response.length()-5));
-                string = string.replace("\\n", " ");
+                string = string.replace("\\n", "\n\n");
                 description.setText(string);
 
             }

@@ -29,6 +29,7 @@
         <activity android:name=".Activities.PlanetActivity" />
         <activity android:name=".Activities.CreateNoteActivity" />
         <activity android:name=".Activities.NotesDetailActivity" />
+        <activity android:name=".Activities.ExploreImageActivity" />
     </application>
 
 </manifest>
