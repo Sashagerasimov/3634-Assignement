@@ -98,6 +98,7 @@ public class QuizActivity extends AppCompatActivity {
             rb4.setText(options.get(questionCounter).getOption4());
 
             questionCounter++;
+            answered = false;
 
         }
 //question.setText(questionList.get(questionCounter));
@@ -109,9 +110,9 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void markQuestion(){
+        answered = true;
         RadioButton radioButtonSelected = findViewById(radioGroup.getCheckedRadioButtonId());
         int answerNo = radioGroup.indexOfChild(radioButtonSelected) + 1;
-
         //If the answer selected is correct
         if (answerNo == options.get(questionCounter).getAnswerNumber()){
             score+=10; //increase score
@@ -120,6 +121,14 @@ public class QuizActivity extends AppCompatActivity {
 
         //showSolution();
     }
+
+    //RadioButton uans = (RadioButton) findViewById(radio_g.getCheckedRadioButtonId());
+    //                String ansText = uans.getText().toString();
+    ////                Toast.makeText(getApplicationContext(), ansText, Toast.LENGTH_SHORT).show();
+    //                if(ansText.equals(answers[flag])) {
+    //                    correct++;
+    //                    Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
+    //                }
 }
 
 

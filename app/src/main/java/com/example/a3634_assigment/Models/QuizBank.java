@@ -51,7 +51,7 @@ public class QuizBank {
             case "Neptune":
                 questionList.add("Which planet from the Sun is Neptune?"); //8th
                 questionList.add("How many times in mass is Neptune larger than Earth?"); //17 times
-                questionList.add("How long does it take Mars to orbit the Sun once?");//164.8 years
+                questionList.add("How long does it take Neptune to orbit the Sun once?");//164.8 years
                 questionList.add("What is Neptune's atmosphere composed of?");//hydrogen and helium
                 questionList.add("Neptune's outer atmosphere is one of the coldest places in the Solar System. What is its temperature?"); //55K
                 questionList.add("Compared to other planets, how big is Neptune?"); //2nd smallest
