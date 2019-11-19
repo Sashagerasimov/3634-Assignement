@@ -29,7 +29,7 @@ public class PlanetActivity extends AppCompatActivity {
 
         //SETTING UP PLANETS
         Intent intent = getIntent();
-        String englishName = intent.getStringExtra("englishName");
+        String englishName = intent.getStringExtra("Name");
         getSupportActionBar().setTitle(englishName);
         name = englishName;
 

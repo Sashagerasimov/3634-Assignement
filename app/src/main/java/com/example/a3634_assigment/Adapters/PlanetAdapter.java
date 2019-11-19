@@ -5,21 +5,22 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a3634_assigment.Activities.PlanetActivity;
-import com.example.a3634_assigment.Models.Bodies.Body;
+import com.example.a3634_assigment.Models.Planet;
 import com.example.a3634_assigment.R;
 
 import java.util.ArrayList;
 
 public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetViewHolder> {
-    public ArrayList<Body> planets = new ArrayList<>();
+    public ArrayList<Planet> planets = new ArrayList<>();
 
-    public void setData(ArrayList<Body> planetsToAdapt) {
+    public void setData(ArrayList<Planet> planetsToAdapt) {
         this.planets = planetsToAdapt;
 
     }
@@ -28,10 +29,12 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetView
 
         public View view;
         public TextView planetName;
+        public ImageView planetImage;
         public PlanetViewHolder(View v) {
             super(v);
             view = v;
             planetName = v.findViewById(R.id.planet_name);
+            planetImage =v.findViewById(R.id.planet_image);
         }
     }
     @NonNull
@@ -44,8 +47,9 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetView
     }
     @Override
     public void onBindViewHolder(@NonNull final PlanetViewHolder holder, final int position) {
-        final Body currentBody = planets.get(position);
-        holder.planetName.setText(currentBody.getEnglishName());
+        final Planet currentPlanet = planets.get(position);
+        holder.planetName.setText(currentPlanet.getName());
+        holder.planetImage.setImageResource(currentPlanet.getImageDrawableId());
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +57,7 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetView
                 Context context = view.getContext();
 
                 Intent explicitIntent = new Intent(context, PlanetActivity.class);
-                explicitIntent.putExtra("englishName", currentBody.getEnglishName());
+                explicitIntent.putExtra("Name", currentPlanet.getName());
                 context.startActivity(explicitIntent);
             }
         });
