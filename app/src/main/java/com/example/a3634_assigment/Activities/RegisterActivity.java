@@ -53,14 +53,15 @@ public class RegisterActivity extends AppCompatActivity {
                 System.out.println("hello");
             }
         }
-/*
+    }
+
         //ignoring register
-        public void ignoreRegister (View view){
-            Intent intent2 = new Intent(RegisterActivity.this, DashboardActivity.class);
+        public void ignoreRegister(View view){
+            Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
             startActivity(intent);
         }
     }
 
- */
-    }
-}
+
+
+
