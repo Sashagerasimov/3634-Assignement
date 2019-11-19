@@ -40,20 +40,22 @@ public class QuizActivity extends AppCompatActivity {
     public TextView currentScore;
     public ColorStateList textColorDefaultRb;
 
-
+    //declaring items needed
     String planet;
     ArrayList<String> questionList;
     ArrayList<Options> options;
     private int questionCounter = 0;
-    private int questionCountTotal;
+    private int questionCountTotal = 0;
     private int score = 0;
-    int currentQuestion = 0;
+    //int currentQuestion = 0;
     int currentAnswer;
+    private Options currentQuestion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        //linking widgets to xml layout
         rb1 = findViewById(R.id.option1);
         rb2 = findViewById(R.id.option2);
         rb3 = findViewById(R.id.option3);
@@ -65,17 +67,20 @@ public class QuizActivity extends AppCompatActivity {
         status = findViewById(R.id.correct);
         currentScore = findViewById(R.id.userScore);
 
+        //set labels as invisible
         currentScore.setVisibility(View.INVISIBLE);
         status.setVisibility(View.INVISIBLE);
 
-        //question.setText(PlanetActivity.name);
+        //get questions from relevant planet activity
+        //questionList = QuizBank.getQuestions(PlanetActivity.name);
 
-        questionList = QuizBank.getQuestions(PlanetActivity.name);
-        questionCountTotal = questionList.size();
+        //retrieve options from planet activity
         options = QuizBank.getOptions(PlanetActivity.name);
+        questionCountTotal = options.size();
+        //shows next question
         refreshQuestion();
 
-
+        //do following when clicked
         mark.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -99,15 +104,18 @@ public class QuizActivity extends AppCompatActivity {
         rb4.setTextColor(textColorDefaultRb);
         radioGroup.clearCheck();
 
+
         if (questionCounter < questionCountTotal){
-            question.setText(questionList.get(questionCounter));
-            rb1.setText(options.get(questionCounter).getOption1());
-            rb2.setText(options.get(questionCounter).getOption2());
-            rb3.setText(options.get(questionCounter).getOption3());
-            rb4.setText(options.get(questionCounter).getOption4());
+            currentQuestion = options.get(questionCounter);
+            question.setText(currentQuestion.getQuestion());
+            rb1.setText(currentQuestion.getOption1());
+            rb2.setText(currentQuestion.getOption2());
+            rb3.setText(currentQuestion.getOption3());
+            rb4.setText(currentQuestion.getOption4());
 
             questionCounter++;
             answered = false;
+            mark.setText("Confirm");
         }
         else {
             finish();
@@ -119,69 +127,62 @@ public class QuizActivity extends AppCompatActivity {
 
         int selectedId = radioGroup.getCheckedRadioButtonId();
         RadioButton radioButtonSelected = findViewById(selectedId);
-        currentScore.setText(String.valueOf(selectedId));
+        //currentScore.setText(String.valueOf(selectedId));
         //RadioButton radioButtonSelected = findViewById(radioGroup.getCheckedRadioButtonId());
         int answerNo = radioGroup.indexOfChild(radioButtonSelected) + 1;
         //If the answer selected is correct
         //up until the last question
-        if (questionCounter <  questionCountTotal - 1) {
-            if (answerNo == options.get(questionCounter).getAnswerNumber()) {
+
+            if (answerNo == currentQuestion.getAnswerNumber()) {
                 score += 10; //increase score by 10
                 currentScore.setVisibility(View.VISIBLE);
                 currentScore.setText(String.valueOf(score));
-                refreshQuestion();
+                //refreshQuestion();
                 //display the increased score
-            } else {
+            }
 
                 showAnswer();
-            }
-        }
-        else if (questionCounter == questionCountTotal-1) {
-            if (answerNo == options.get(questionCounter-1).getAnswerNumber()) {
-                score += 10; //increase score
-                currentScore.setVisibility(View.VISIBLE);
-                currentScore.setText(String.valueOf(score));
-                refreshQuestion(); //display the increased score
-            } else {
 
-                showAnswer();
-            }
-        }
+
     }
-    private void showAnswer(){
+    private void showAnswer() {
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
         rb4.setTextColor(Color.RED);
 
         status.setVisibility(View.VISIBLE);
-        switch(options.get(questionCounter).getAnswerNumber()){
-            case 1:
-                rb1.setTextColor(Color.GREEN);
-                status.setText("Answer 1 is Correct!");
-                break;
-            case 2:
-                rb2.setTextColor(Color.GREEN);
-                status.setText("Answer 2 is Correct!");
-                break;
-            case 3:
-                rb3.setTextColor(Color.GREEN);
-                status.setText("Answer 3 is Correct!");
-                break;
-            case 4:
-                rb4.setTextColor(Color.GREEN);
-                status.setText("Answer 4 is Correct!");
-                break;
+
+
+            switch (currentQuestion.getAnswerNumber()) {
+                case 1:
+                    rb1.setTextColor(Color.GREEN);
+                    status.setText("Answer 1 is Correct!");
+                    break;
+                case 2:
+                    rb2.setTextColor(Color.GREEN);
+                    status.setText("Answer 2 is Correct!");
+                    break;
+                case 3:
+                    rb3.setTextColor(Color.GREEN);
+                    status.setText("Answer 3 is Correct!");
+                    break;
+                case 4:
+                    rb4.setTextColor(Color.GREEN);
+                    status.setText("Answer 4 is Correct!");
+                    break;
+            }
+            if (questionCounter < questionCountTotal) {
+                mark.setText("Next Question");
+                //refreshQuestion();
+            } else {
+                mark.setText("Finish Quiz");
+                finish();
+            }
+
+
         }
-        if(questionCounter < questionCountTotal){
-            mark.setText("Next Question");
-            refreshQuestion();
-        }
-        else{
-            mark.setText("Finish Quiz");
-            finish();
-        }
-    }
+
 
 
 
