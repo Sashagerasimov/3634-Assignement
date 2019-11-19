@@ -26,6 +26,8 @@ public class PlanetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
 
+
+        //SETTING UP PLANETS
         Intent intent = getIntent();
         String englishName = intent.getStringExtra("englishName");
         getSupportActionBar().setTitle(englishName);

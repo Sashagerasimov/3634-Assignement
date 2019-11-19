@@ -20,6 +20,9 @@ public interface UserDao {
 
    @Query("SELECT * FROM User WHERE username = :username")
    User returnOneUserByUserName (String username);
+
+    @Query("UPDATE User SET score = score + :addNum WHERE username = :username")
+    void updateScore (int addNum, String username);
     }
 
 

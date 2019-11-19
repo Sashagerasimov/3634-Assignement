@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Models.Options;
 import com.example.a3634_assigment.Models.QuizBank;
 import com.example.a3634_assigment.R;
@@ -144,6 +145,7 @@ public class QuizActivity extends AppCompatActivity {
             correctCount++;
             currentScore.setVisibility(View.VISIBLE);
             currentScore.setText(String.valueOf(score));
+            SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
             //refreshQuestion();
             //display the increased score
         }
