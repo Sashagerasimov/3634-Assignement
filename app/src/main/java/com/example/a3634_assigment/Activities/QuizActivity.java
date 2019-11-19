@@ -3,6 +3,7 @@ package com.example.a3634_assigment.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,11 @@ import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
 
+    /*Code Resource:
+    Author: Coding in Flow - youtube user
+    Year: 2017
+    Link: https://www.youtube.com/watch?v=5ISNPFmuOU8
+    */
 
     //initialising widgets
     public RadioButton rb1;
@@ -30,7 +36,8 @@ public class QuizActivity extends AppCompatActivity {
     public Button mark;
     private boolean answered;
     public TextView question;
-    private TextView textViewScore;
+    private TextView status;
+    public TextView currentScore;
     public ColorStateList textColorDefaultRb;
 
 
@@ -39,16 +46,13 @@ public class QuizActivity extends AppCompatActivity {
     ArrayList<Options> options;
     private int questionCounter = 0;
     private int questionCountTotal;
-    private int score;
+    private int score = 0;
     int currentQuestion = 0;
     int currentAnswer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-
-
-
 
         rb1 = findViewById(R.id.option1);
         rb2 = findViewById(R.id.option2);
@@ -58,6 +62,11 @@ public class QuizActivity extends AppCompatActivity {
         question = findViewById(R.id.question);
         mark = findViewById(R.id.nextQuestion);
         textColorDefaultRb = rb1.getTextColors();
+        status = findViewById(R.id.correct);
+        currentScore = findViewById(R.id.userScore);
+
+        currentScore.setVisibility(View.INVISIBLE);
+        status.setVisibility(View.INVISIBLE);
 
         //question.setText(PlanetActivity.name);
 
@@ -99,36 +108,83 @@ public class QuizActivity extends AppCompatActivity {
 
             questionCounter++;
             answered = false;
-
         }
-//question.setText(questionList.get(questionCounter));
-//            rb1.setText(options.get(currentQuestion).getOption1());
-//            rb2.setText(options.get(currentQuestion).getOption2());
-//            rb3.setText(options.get(currentQuestion).getOption3());
-//            rb4.setText(options.get(currentQuestion).getOption4());
-
+        else {
+            finish();
+        }
     }
 
     private void markQuestion(){
         answered = true;
-        RadioButton radioButtonSelected = findViewById(radioGroup.getCheckedRadioButtonId());
+
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        RadioButton radioButtonSelected = findViewById(selectedId);
+        currentScore.setText(String.valueOf(selectedId));
+        //RadioButton radioButtonSelected = findViewById(radioGroup.getCheckedRadioButtonId());
         int answerNo = radioGroup.indexOfChild(radioButtonSelected) + 1;
         //If the answer selected is correct
-        if (answerNo == options.get(questionCounter).getAnswerNumber()){
-            score+=10; //increase score
-            //textViewScore.setText("Score: " + score); //display the increased score
-        }
+        //up until the last question
+        if (questionCounter <  questionCountTotal - 1) {
+            if (answerNo == options.get(questionCounter).getAnswerNumber()) {
+                score += 10; //increase score by 10
+                currentScore.setVisibility(View.VISIBLE);
+                currentScore.setText(String.valueOf(score));
+                refreshQuestion();
+                //display the increased score
+            } else {
 
-        //showSolution();
+                showAnswer();
+            }
+        }
+        else if (questionCounter == questionCountTotal-1) {
+            if (answerNo == options.get(questionCounter-1).getAnswerNumber()) {
+                score += 10; //increase score
+                currentScore.setVisibility(View.VISIBLE);
+                currentScore.setText(String.valueOf(score));
+                refreshQuestion(); //display the increased score
+            } else {
+
+                showAnswer();
+            }
+        }
+    }
+    private void showAnswer(){
+        rb1.setTextColor(Color.RED);
+        rb2.setTextColor(Color.RED);
+        rb3.setTextColor(Color.RED);
+        rb4.setTextColor(Color.RED);
+
+        status.setVisibility(View.VISIBLE);
+        switch(options.get(questionCounter).getAnswerNumber()){
+            case 1:
+                rb1.setTextColor(Color.GREEN);
+                status.setText("Answer 1 is Correct!");
+                break;
+            case 2:
+                rb2.setTextColor(Color.GREEN);
+                status.setText("Answer 2 is Correct!");
+                break;
+            case 3:
+                rb3.setTextColor(Color.GREEN);
+                status.setText("Answer 3 is Correct!");
+                break;
+            case 4:
+                rb4.setTextColor(Color.GREEN);
+                status.setText("Answer 4 is Correct!");
+                break;
+        }
+        if(questionCounter < questionCountTotal){
+            mark.setText("Next Question");
+            refreshQuestion();
+        }
+        else{
+            mark.setText("Finish Quiz");
+            finish();
+        }
     }
 
-    //RadioButton uans = (RadioButton) findViewById(radio_g.getCheckedRadioButtonId());
-    //                String ansText = uans.getText().toString();
-    ////                Toast.makeText(getApplicationContext(), ansText, Toast.LENGTH_SHORT).show();
-    //                if(ansText.equals(answers[flag])) {
-    //                    correct++;
-    //                    Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
-    //                }
+
+
 }
 
 
