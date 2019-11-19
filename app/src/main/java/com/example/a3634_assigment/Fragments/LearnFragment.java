@@ -55,16 +55,15 @@ public class LearnFragment extends Fragment {
                 BodyResponse bodyResponse = gson.fromJson(response, BodyResponse.class);
                 List<Body> bodies = bodyResponse.getBodies();
                 ArrayList<Body> planets = new ArrayList<>();
-                //planets.add(bodies.get(242));
-                planets.add(bodies.get(239));
                 planets.add(bodies.get(240));
-                planets.add(bodies.get(241));
-                planets.add(bodies.get(238));
-                planets.add(bodies.get(243));
                 planets.add(bodies.get(244));
+                planets.add(bodies.get(243));
+                planets.add(bodies.get(239));
+                planets.add(bodies.get(238));
+                planets.add(bodies.get(241));
+                planets.add(bodies.get(199));
                 planets.add(bodies.get(219));
                 planets.add(bodies.get(208));
-                planets.add(bodies.get(199));
 
                 planetAdapter.setData(planets);
                 recyclerView.setAdapter(planetAdapter);

@@ -19,11 +19,33 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/wiki_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:text="title"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp"
+                android:text="Loading..."
                 android:textSize="15sp" />
+
         </LinearLayout>
     </ScrollView>
 

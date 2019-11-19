@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,8 +46,9 @@ public class ExploreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_explore, container, false);
         recyclerView = view.findViewById(R.id.image_rv);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
-        recyclerView.setLayoutManager(layoutManager);
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        //recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
         final ExploreImagesAdapter exploreImagesAdapter = new ExploreImagesAdapter();
 
@@ -57,14 +59,13 @@ public class ExploreFragment extends Fragment {
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 Gson gson = new Gson();
                 NasaResponse nasaResponse = gson.fromJson(response, NasaResponse.class);
                 List<Item> itemsList = nasaResponse.getCollection().getItems();
                 ArrayList<Item> items = new ArrayList<>(itemsList);
                 exploreImagesAdapter.setData(items);
                 recyclerView.setAdapter(exploreImagesAdapter);
-
-
 
             }
         };
