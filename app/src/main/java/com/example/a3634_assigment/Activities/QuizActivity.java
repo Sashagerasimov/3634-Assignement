@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Models.Options;
 import com.example.a3634_assigment.Models.QuizBank;
 import com.example.a3634_assigment.R;
@@ -144,6 +145,7 @@ public class QuizActivity extends AppCompatActivity {
             correctCount++;
             currentScore.setVisibility(View.VISIBLE);
             currentScore.setText(String.valueOf(score));
+
             //refreshQuestion();
             //display the increased score
         }
@@ -194,6 +196,7 @@ public class QuizActivity extends AppCompatActivity {
     private void finishQuiz() {
         correctScore.setVisibility(View.VISIBLE);
         correctScore.setText("Your Score: " + correctCount + " / 8 ");
+        SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
         mark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
