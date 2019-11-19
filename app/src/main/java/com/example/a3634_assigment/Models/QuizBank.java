@@ -99,6 +99,28 @@ public class QuizBank {
                 questionList.add("When did life first arise on Earth?"); //4.1billion years ago
                 questionList.add("What special property is Earth?"); //most dense
                 break;
+
+                case "Jupiter":
+                questionList.add("Which planet from the Sun is Jupiter?"); //3rd
+                questionList.add("What percentage of Earth's surface is covered with water?"); //71%
+                questionList.add("What percentage of species that ever lived on Earth are now extinct?");//99%
+                questionList.add("How long does it take Earth to orbit the Sun?");//365days
+                questionList.add("What is the Earth's inner core made up of?"); //solid iron
+                questionList.add("Compared to other planets, how big is Jupiter?"); //
+                questionList.add("When did life first arise on Earth?"); //4.1billion years ago
+                questionList.add("What special property is Earth?"); //most dense
+                break;
+
+            case "Venus":
+                questionList.add("Which planet from the Sun is Earth?"); //3rd
+                questionList.add("What percentage of Earth's surface is covered with water?"); //71%
+                questionList.add("What percentage of species that ever lived on Earth are now extinct?");//99%
+                questionList.add("How long does it take Earth to orbit the Sun?");//365days
+                questionList.add("What is the Earth's inner core made up of?"); //solid iron
+                questionList.add("Compared to other planets, how big is Earth?"); //
+                questionList.add("When did life first arise on Earth?"); //4.1billion years ago
+                questionList.add("What special property is Earth?"); //most dense
+                break;
             //chance
         }
         return questionList;
@@ -186,6 +208,150 @@ public class QuizBank {
                     options.add(neptuneQ6 = new Options("smallest", "2nd smallest", "3rd smallest", "4th smallest", 2)); //
                     options.add(neptuneQ7 = new Options("green", "red", "purple", "blue", 4)); //4.1billion years ago
                     options.add(neptuneQ8 = new Options("14", "15", "3", "72", 1)); //most dense
+                    break;
+
+                case "Mars":
+                    Options marsQ1;
+                    Options marsQ2;
+                    Options marsQ3;
+                    Options marsQ4;
+                    Options marsQ5;
+                    Options marsQ6;
+                    Options marsQ7;
+                    Options marsQ8;
+
+                    options.add(marsQ1 = new Options("8th", "3rd", "4th", "5th", 2));  //3rd
+                    options.add(marsQ2 = new Options("Olympus Mons", "Mount Everest", "Olympus Gasis", "Mount Voldon", 1)); //71%
+                    options.add(marsQ3 = new Options("Low atmospheric pressure", "High atmospheric pressure", "No oxygen in atmosphere", "Too much helium in atmosphere", 1));//99%
+                    options.add(marsQ4 = new Options("Neptune", "Pluto", "Earth", "Venus", 3));//365days
+                    options.add(marsQ5 = new Options("No", "Yes", "Unlikely", "Likely", 2)); //solid iron
+                    options.add(marsQ6 = new Options("Smallest", "2nd smallest", "3rd smallest", "4th smallest", 2)); //
+                    options.add(marsQ7 = new Options("green", "red", "purple", "blue", 2)); //4.1billion years ago
+                    options.add(marsQ8 = new Options("14", "3", "3", "72", 3)); //most dense
+                    break;
+
+
+
+
+                case "Mercury":
+                    Options mercuryQ1;
+                    Options mercuryQ2;
+                    Options mercuryQ3;
+                    Options mercuryQ4;
+                    Options mercuryQ5;
+                    Options mercuryQ6;
+                    Options mercuryQ7;
+                    Options mercuryQ8;
+
+                    options.add(mercuryQ1 = new Options("8th", "3rd", "4th", "1st", 4));  //3rd
+                    options.add(mercuryQ2 = new Options("Messenger of the Gods", "Roman Priest", "Ruler of the Gods", "Roman Emperor", 1)); //71%
+                    options.add(mercuryQ3 = new Options("3", "2", "1", "4", 2));//99%
+                    options.add(mercuryQ4 = new Options("97.99 days", "87.97 days", "101 days", "300.46 days", 2));//365days
+                    options.add(mercuryQ5 = new Options("No", "Yes", "Unlikely", "Likely", 2)); //solid iron
+                    options.add(mercuryQ6 = new Options("Smallest", "2nd smallest", "3rd smallest", "4th smallest", 1)); //
+                    options.add(mercuryQ7 = new Options("No", "Yes", "Possibly", "Unlikely", 1)); //4.1billion years ago
+                    options.add(mercuryQ8 = new Options("14", "3", "3", "0", 4)); //most dense
+                    break;
+
+                case "Saturn":
+                    Options saturnQ1;
+                    Options saturnQ2;
+                    Options saturnQ3;
+                    Options saturnQ4;
+                    Options saturnQ5;
+                    Options saturnQ6;
+                    Options saturnQ7;
+                    Options saturnQ8;
+
+                    options.add(saturnQ1 = new Options("6th", "3rd", "4th", "1st", 1));  //3rd
+                    options.add(saturnQ2 = new Options("7 hrs", "2 hrs 45 mins", "10 hours 33 mins", "4 hours 24 mins", 3)); //71%
+                    options.add(saturnQ3 = new Options("Solid", "Liquid", "Gaseous", "Liquid & Solid", 3));//99%
+                    options.add(saturnQ4 = new Options("29 years", "24 years", "2 years", "1 year", 1));//365days
+                    options.add(saturnQ5 = new Options("1800km/hr", "100km/hr", "3000km/hr", "40km/hr", 1)); //solid iron
+                    options.add(saturnQ6 = new Options("Smallest", "2nd largest", "3rd smallest", "4th smallest", 2)); //
+                    options.add(saturnQ7 = new Options("Purple", "Red", "Blue", "Yellow", 4)); //4.1billion years ago
+                    options.add(saturnQ8 = new Options("14", "3", "3", "82", 4)); //most dense
+                    break;
+
+                case "Earth":
+                    Options earthQ1;
+                    Options earthQ2;
+                    Options earthQ3;
+                    Options earthQ4;
+                    Options earthQ5;
+                    Options earthQ6;
+                    Options earthQ7;
+                    Options earthQ8;
+
+                    options.add(earthQ1 = new Options("6th", "3rd", "4th", "1st", 2));  //3rd
+                    options.add(earthQ2 = new Options("71%", "59%", "85%", "63%", 1)); //71%
+                    options.add(earthQ3 = new Options("99%", "52%", "65%", "42%", 1));//99%
+                    options.add(earthQ4 = new Options("367 days", "398 days", "47 days", "365 days", 4));//365days
+                    options.add(earthQ5 = new Options("Solid Iron", "Solid Magnesium", "Solid Carbon", "Liquid Nitrogen", 1)); //solid iron
+                    options.add(earthQ6 = new Options("Smallest", "2nd largest", "3rd smallest", "4th smallest", 4)); //
+                    options.add(earthQ7 = new Options("4.1 billion  years ago", "2.5 billion  years ago", "3 million years ago", "2.3 billion years ago", 1)); //4.1billion years ago
+                    options.add(earthQ8 = new Options("Most dense", "Least dense", "Most gaseous", "Least liquid", 1)); //most dense
+                    break;
+
+                case "Jupiter":
+                    Options jupiterQ1;
+                    Options jupiterQ2;
+                    Options jupiterQ3;
+                    Options jupiterQ4;
+                    Options jupiterQ5;
+                    Options jupiterQ6;
+                    Options jupiterQ7;
+                    Options jupiterQ8;
+
+                    options.add(jupiterQ1 = new Options("6th", "3rd", "4th", "1st", 2));  //3rd
+                    options.add(jupiterQ2 = new Options("71%", "59%", "85%", "63%", 1)); //71%
+                    options.add(jupiterQ3 = new Options("99%", "52%", "65%", "42%", 1));//99%
+                    options.add(jupiterQ4 = new Options("367 days", "398 days", "47 days", "365 days", 4));//365days
+                    options.add(jupiterQ5 = new Options("Solid Iron", "Solid Magnesium", "Solid Carbon", "Liquid Nitrogen", 1)); //solid iron
+                    options.add(jupiterQ6 = new Options("Smallest", "2nd largest", "3rd smallest", "4th smallest", 4)); //
+                    options.add(jupiterQ7 = new Options("4.1 billion  years ago", "2.5 billion  years ago", "3 million years ago", "2.3 billion years ago", 1)); //4.1billion years ago
+                    options.add(jupiterQ8 = new Options("Most dense", "Least dense", "Most gaseous", "Least liquid", 1)); //most dense
+                    break;
+
+                case "Venus":
+                    Options venusQ1;
+                    Options venusQ2;
+                    Options venusQ3;
+                    Options venusQ4;
+                    Options venusQ5;
+                    Options venusQ6;
+                    Options venusQ7;
+                    Options venusQ8;
+
+                    options.add(venusQ1 = new Options("6th", "3rd", "4th", "1st", 2));  //3rd
+                    options.add(venusQ2 = new Options("71%", "59%", "85%", "63%", 1)); //71%
+                    options.add(venusQ3 = new Options("99%", "52%", "65%", "42%", 1));//99%
+                    options.add(venusQ4 = new Options("367 days", "398 days", "47 days", "365 days", 4));//365days
+                    options.add(venusQ5 = new Options("Solid Iron", "Solid Magnesium", "Solid Carbon", "Liquid Nitrogen", 1)); //solid iron
+                    options.add(venusQ6 = new Options("Smallest", "2nd largest", "3rd smallest", "4th smallest", 4)); //
+                    options.add(venusQ7 = new Options("4.1 billion  years ago", "2.5 billion  years ago", "3 million years ago", "2.3 billion years ago", 1)); //4.1billion years ago
+                    options.add(venusQ8 = new Options("Most dense", "Least dense", "Most gaseous", "Least liquid", 1)); //most dense
+                    break;
+
+
+                case "Pluto":
+                    Options plutoQ1;
+                    Options plutoQ2;
+                    Options plutoQ3;
+                    Options plutoQ4;
+                    Options plutoQ5;
+                    Options plutoQ6;
+                    Options plutoQ7;
+                    Options plutoQ8;
+
+                    options.add(plutoQ1 = new Options("6th", "3rd", "4th", "1st", 2));  //3rd
+                    options.add(plutoQ2 = new Options("71%", "59%", "85%", "63%", 1)); //71%
+                    options.add(plutoQ3 = new Options("99%", "52%", "65%", "42%", 1));//99%
+                    options.add(plutoQ4 = new Options("367 days", "398 days", "47 days", "365 days", 4));//365days
+                    options.add(plutoQ5 = new Options("Solid Iron", "Solid Magnesium", "Solid Carbon", "Liquid Nitrogen", 1)); //solid iron
+                    options.add(plutoQ6 = new Options("Smallest", "2nd largest", "3rd smallest", "4th smallest", 4)); //
+                    options.add(plutoQ7 = new Options("4.1 billion  years ago", "2.5 billion  years ago", "3 million years ago", "2.3 billion years ago", 1)); //4.1billion years ago
+                    options.add(plutoQ8 = new Options("Most dense", "Least dense", "Most gaseous", "Least liquid", 1)); //most dense
                     break;
             }
             return options;
