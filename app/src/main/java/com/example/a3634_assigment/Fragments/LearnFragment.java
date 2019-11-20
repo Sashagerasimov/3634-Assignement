@@ -1,9 +1,11 @@
 package com.example.a3634_assigment.Fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,6 +19,8 @@ import com.example.a3634_assigment.R;
 
 public class LearnFragment extends Fragment {
     private RecyclerView recyclerView;
+    Dialog unlockedDialog;
+    private TextView levelUnlock;
 
     public LearnFragment() {
 
@@ -26,48 +30,66 @@ public class LearnFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_learn, container, false);
+
+
         recyclerView = view.findViewById(R.id.planet_rv);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
-
+        levelUnlock = view.findViewById(R.id.currentLevelTextView);
         PlanetAdapter planetAdapter = new PlanetAdapter();
 
         //unlocks levels according to user score
         if(SessionInfo.currentUser.getScore()>=100) {
             planetAdapter.setData(PlanetBank.getLevel1());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (200 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 2!");
+
         }
         if(SessionInfo.currentUser.getScore()>=200) {
             planetAdapter.setData(PlanetBank.getLevel2());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (300 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 3!");
+
         }
         if(SessionInfo.currentUser.getScore()>=300) {
             planetAdapter.setData(PlanetBank.getLevel3());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (400 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 4!");
         }
         if(SessionInfo.currentUser.getScore()>=400) {
             planetAdapter.setData(PlanetBank.getLevel4());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (500 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 5!");
+
         }
         if(SessionInfo.currentUser.getScore()>=500) {
             planetAdapter.setData(PlanetBank.getLevel5());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (600 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 6!");
+
         }
         if(SessionInfo.currentUser.getScore()>=600) {
             planetAdapter.setData(PlanetBank.getLevel6());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (700 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 7!");
+
         }
         if(SessionInfo.currentUser.getScore()>=700) {
             planetAdapter.setData(PlanetBank.getLevel7());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (800 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 8!");
+
         }
         if(SessionInfo.currentUser.getScore()>=800) {
             planetAdapter.setData(PlanetBank.getLevel8());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Earn "+ (900 - SessionInfo.currentUser.getScore()) + " more points to unlock Level 9!");
+
         }
         if(SessionInfo.currentUser.getScore()>=900) {
             planetAdapter.setData(PlanetBank.getLevel9());
             recyclerView.setAdapter(planetAdapter);
+            levelUnlock.setText("Congratulations! You have finished Solaris!");
         }
         return view;
 

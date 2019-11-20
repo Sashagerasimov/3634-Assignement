@@ -4,8 +4,34 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light">
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:layout_marginLeft="2dp">
+
+        <TextView
+            android:id="@+id/currentLevelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Earn X more points to unlock Level X!"
+            android:textSize="20dp"></TextView>
+
+
+    </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/planet_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="650dp"
+        android:layout_below="@+id/cardView"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
 </RelativeLayout>
