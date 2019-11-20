@@ -2,13 +2,15 @@ package com.example.a3634_assigment.Models;
 
 public class Options {
 
+    //declaring attributes
     public String question;
     public String option1;
     public String option2;
     public String option3;
     public String option4;
     public int answerNumber;
-    //String question,
+
+    //declaring Constructor
     public Options(String question, String option1, String option2, String option3, String option4, int answerNumber) {
         this.question = question;
         this.option1 = option1;
@@ -18,7 +20,7 @@ public class Options {
         this.answerNumber = answerNumber;
     }
 
-
+    //getters and setters
     public String getQuestion() {
         return question;
     }
@@ -26,7 +28,6 @@ public class Options {
     public void setQuestion(String question) {
         this.question = question;
     }
-
 
 
     public String getOption1() {

@@ -17,10 +17,11 @@ import com.example.a3634_assigment.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
-
+    //declare Strings to pass as intents later
     public final static String NEW_USERNAME = "com.example.a3634_assigment.new_username";
     public final static String NEW_PASSWORD = "com.example.a3634_assigment.new_password";
 
+    //initialise widgets
     private TextView newUsername;
     private TextView newPassword;
     private Button submit;
@@ -30,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //link widgets to xml
         newUsername = findViewById(R.id.newUsername);
         newPassword = findViewById(R.id.newPassword);
         submit = findViewById(R.id.submit);
@@ -60,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-    //ignoring register
+    //ignoring register - for test purposes only
         public void ignoreRegister(View view){
             Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
             startActivity(intent);

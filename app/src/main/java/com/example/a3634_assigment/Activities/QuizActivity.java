@@ -223,9 +223,8 @@ public class QuizActivity extends AppCompatActivity {
         correctScore.setVisibility(View.VISIBLE);
         correctScore.setText("Your Score: " + correctCount + " / 8 ");
 
-        //
+        //take user to dashboard activity
         mark.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);

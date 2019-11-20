@@ -30,9 +30,9 @@ import java.util.List;
 
 public class NotesFragment extends Fragment {
 
+    //declare widgets and items needed
     private RecyclerView recyclerView;
     public static NotesAdapter notesAdapter;
-    //public ImageButton createNote;
     public FloatingActionButton createNote;
     public static ArrayList<Notes> notesList = new ArrayList<>();
 
@@ -60,9 +60,9 @@ public class NotesFragment extends Fragment {
                 Intent intent = new Intent(context, CreateNoteActivity.class);
                 context.startActivity(intent);
             }
-            });
+        });
 
-    return view;
+        return view;
     }
 
     public static Notes getNotesById(int catsID2) {

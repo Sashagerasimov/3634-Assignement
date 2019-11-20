@@ -10,6 +10,7 @@ public class SessionInfo {
     public static User currentUser = new User("username", "password", 1);
     public static UserDb mUserDatabase;
 
+    //creates database for user
     public static void createDB(Context context) {
 
         mUserDatabase = Room.databaseBuilder(context.getApplicationContext(),
