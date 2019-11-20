@@ -37,7 +37,8 @@ public class LearnFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         levelUnlock = view.findViewById(R.id.currentLevelTextView);
         PlanetAdapter planetAdapter = new PlanetAdapter();
-
+        planetAdapter.setData(PlanetBank.getLevel1());
+        recyclerView.setAdapter(planetAdapter);
 
 
         //unlocks levels according to user score
@@ -45,8 +46,6 @@ public class LearnFragment extends Fragment {
             planetAdapter.setData(PlanetBank.getLevel1());
             recyclerView.setAdapter(planetAdapter);
             levelUnlock.setText("Earn "+ (100 - SessionInfo.currentUser.getScore()) + " more points to unlock Level Venus!");
-
-
         }
         if(SessionInfo.currentUser.getScore()>=100) {
             planetAdapter.setData(PlanetBank.getLevel2());
