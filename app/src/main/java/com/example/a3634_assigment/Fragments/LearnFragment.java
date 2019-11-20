@@ -20,7 +20,6 @@ import com.example.a3634_assigment.R;
 
 public class LearnFragment extends Fragment {
     private RecyclerView recyclerView;
-    Dialog unlockedDialog;
     private TextView levelUnlock;
 
     public LearnFragment() {
@@ -32,7 +31,7 @@ public class LearnFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_learn, container, false);
 
-
+        //set up recyclerview and adapter
         recyclerView = view.findViewById(R.id.planet_rv);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);

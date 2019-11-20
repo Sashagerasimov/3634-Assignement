@@ -17,10 +17,12 @@ public class PlanetBank {
     }
 
 
+    //gets all planets
     public static ArrayList<Planet> getAllPlanets() {
         return new ArrayList<Planet>((List) Arrays.asList(planets.values().toArray()));
     }
 
+    //adds planets to respective level
     public static ArrayList<Planet> getLevel1(){
         ArrayList<Planet> returnedPlanets = new ArrayList<Planet>();
         returnedPlanets.add(planets.get(1));
@@ -104,7 +106,7 @@ public class PlanetBank {
     }
 
 
-
+    //puts planet objects into hashmaps, assigning them a key
     private static final HashMap<Integer, Planet> planets = new HashMap<>();
 
     static {
