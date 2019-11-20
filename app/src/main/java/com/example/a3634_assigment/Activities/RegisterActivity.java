@@ -24,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     //initialise widgets
     private TextView newUsername;
     private TextView newPassword;
+    private TextView newPassword2;
     private Button submit;
 
     @Override
@@ -34,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         //link widgets to xml
         newUsername = findViewById(R.id.newUsername);
         newPassword = findViewById(R.id.newPassword);
+        newPassword2 = findViewById(R.id.newPassword2);
         submit = findViewById(R.id.submit);
 
     }
@@ -49,6 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (newPassword.getText().toString().equals("")) {
             // Missing Password Field
             Toast.makeText(getApplicationContext(), "Password Field empty!", Toast.LENGTH_SHORT).show();
+        } else if (newPassword2.getText().toString()!= newPassword.getText().toString()){
+            Toast.makeText(getApplicationContext(), "Password does not match!", Toast.LENGTH_SHORT).show();
         }
             if (intent != null) {
                 startActivity(intent);
