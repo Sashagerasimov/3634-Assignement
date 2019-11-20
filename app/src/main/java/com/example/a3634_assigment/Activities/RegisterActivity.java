@@ -47,15 +47,20 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (newPassword.getText().toString().equals("")) {
             // Missing Password Field
             Toast.makeText(getApplicationContext(), "Password Field empty!", Toast.LENGTH_SHORT).show();
+        }
             if (intent != null) {
                 startActivity(intent);
             } else {
                 System.out.println("hello");
             }
         }
-    }
 
-        //ignoring register
+
+
+
+
+
+    //ignoring register
         public void ignoreRegister(View view){
             Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
             startActivity(intent);

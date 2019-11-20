@@ -171,25 +171,23 @@ public class QuizActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Level Pluto Unlocked!", Toast.LENGTH_SHORT).show();
             }
 
-            //refreshQuestion();
-            //display the increased score
+
         }
-
-
+        //show solution
         showAnswer();
-
-
     }
 
     private void showAnswer() {
+        //sets radio button text as red
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
         rb4.setTextColor(Color.RED);
 
+        //makes label for correct answer as visible
         status.setVisibility(View.VISIBLE);
 
-
+        //displays correct answer
         switch (currentQuestion.getAnswerNumber()) {
             case 1:
                 rb1.setTextColor(Color.GREEN);
@@ -219,11 +217,15 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+    //finish quiz
     private void finishQuiz() {
+        //displays correct score
         correctScore.setVisibility(View.VISIBLE);
         correctScore.setText("Your Score: " + correctCount + " / 8 ");
-        //SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
+
+        //
         mark.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
