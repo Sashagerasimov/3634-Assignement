@@ -26,11 +26,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.SettingsActivity" />
-        <activity android:name=".Activities.PlanetActivity" />
+        <activity android:name=".Activities.PlanetActivity"
+                  android:parentActivityName=".Activities.DashboardActivity"/>
         <activity android:name=".Activities.CreateNoteActivity" />
         <activity android:name=".Activities.NotesDetailActivity" />
         <activity android:name=".Activities.ExploreImageActivity" />
-        <activity android:name=".Activities.WatchActivity" />
+        <activity android:name=".Activities.WatchActivity"
+                  android:parentActivityName=".Activities.DashboardActivity"/>
     </application>
 
 </manifest>

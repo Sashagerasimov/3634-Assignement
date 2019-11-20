@@ -80,12 +80,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 Intent myIntentOne = new Intent(DashboardActivity.this, WatchActivity.class);
                 DashboardActivity.this.startActivity(myIntentOne);
                 break;
-            case R.id.nav_settings:
-                Intent myIntentTwo = new Intent(DashboardActivity.this, SettingsActivity.class);
+            case R.id.nav_logout:
+                finish();
+                Intent myIntentTwo = new Intent(DashboardActivity.this, MainActivity.class);
                 DashboardActivity.this.startActivity(myIntentTwo);
                 break;
-
-
         }
 
         drawer.closeDrawer(GravityCompat.START);
