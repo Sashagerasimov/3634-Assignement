@@ -142,13 +142,43 @@ public class QuizActivity extends AppCompatActivity {
 
         if (answerNo == currentQuestion.getAnswerNumber()) {
             score += 10; //increase score by 10
+            SessionInfo.currentUser.setScore(SessionInfo.currentUser.getScore() + score);
+            SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
             correctCount++;
             currentScore.setVisibility(View.VISIBLE);
             currentScore.setText(String.valueOf(score));
+            if(SessionInfo.currentUser.getScore() == 200){
+                Toast.makeText(getApplicationContext(), "Level Venus Unlocked!", Toast.LENGTH_SHORT).show();
+            }
+            else if(SessionInfo.currentUser.getScore() == 300){
+                Toast.makeText(getApplicationContext(), "Level Earth Unlocked!", Toast.LENGTH_SHORT).show();
+            }
+            else if(SessionInfo.currentUser.getScore() == 400){
+                Toast.makeText(getApplicationContext(), "Level Mars Unlocked!", Toast.LENGTH_SHORT).show();
+            }
+            else if(SessionInfo.currentUser.getScore() == 500){
+                Toast.makeText(getApplicationContext(), "Level Jupiter Unlocked!", Toast.LENGTH_SHORT).show();
+            }
+            else if(SessionInfo.currentUser.getScore() == 600){
+                Toast.makeText(getApplicationContext(), "Level Saturn Unlocked!", Toast.LENGTH_SHORT).show();
+            }
+            else if(SessionInfo.currentUser.getScore() == 700){
+                Toast.makeText(getApplicationContext(), "Level Uranus Unlocked!", Toast.LENGTH_SHORT).show();
+            }
+            else if(SessionInfo.currentUser.getScore() == 800){
+                Toast.makeText(getApplicationContext(), "Level Neptune Unlocked!", Toast.LENGTH_SHORT).show();
+            }
+            else if(SessionInfo.currentUser.getScore() == 900){
+                Toast.makeText(getApplicationContext(), "Level Pluto Unlocked!", Toast.LENGTH_SHORT).show();
+            }
 
             //refreshQuestion();
             //display the increased score
         }
+
+
+
+
 
         showAnswer();
 
@@ -196,7 +226,7 @@ public class QuizActivity extends AppCompatActivity {
     private void finishQuiz() {
         correctScore.setVisibility(View.VISIBLE);
         correctScore.setText("Your Score: " + correctCount + " / 8 ");
-        SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
+        //SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
         mark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
