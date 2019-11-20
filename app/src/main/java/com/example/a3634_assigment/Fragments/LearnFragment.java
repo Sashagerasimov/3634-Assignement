@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a3634_assigment.Adapters.PlanetAdapter;
 import com.example.a3634_assigment.Database.PlanetBank;
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.R;
 
 public class LearnFragment extends Fragment {
@@ -31,9 +32,46 @@ public class LearnFragment extends Fragment {
 
         PlanetAdapter planetAdapter = new PlanetAdapter();
 
-        planetAdapter.setData(PlanetBank.getAllPlanets());
-        recyclerView.setAdapter(planetAdapter);
-
+        //unlocks levels according to user score
+        if(SessionInfo.currentUser.getScore()>=100) {
+            planetAdapter.setData(PlanetBank.getLevel1());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=200) {
+            planetAdapter.setData(PlanetBank.getLevel2());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=300) {
+            planetAdapter.setData(PlanetBank.getLevel3());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=400) {
+            planetAdapter.setData(PlanetBank.getLevel4());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=500) {
+            planetAdapter.setData(PlanetBank.getLevel5());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=600) {
+            planetAdapter.setData(PlanetBank.getLevel6());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=700) {
+            planetAdapter.setData(PlanetBank.getLevel7());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=800) {
+            planetAdapter.setData(PlanetBank.getLevel8());
+            recyclerView.setAdapter(planetAdapter);
+        }
+        if(SessionInfo.currentUser.getScore()>=900) {
+            planetAdapter.setData(PlanetBank.getLevel9());
+            recyclerView.setAdapter(planetAdapter);
+        }
         return view;
+
     }
+
+
 }
