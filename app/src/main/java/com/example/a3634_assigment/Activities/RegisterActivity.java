@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.material.textfield.TextInputLayout;
 
 import com.example.a3634_assigment.Models.User;
 import com.example.a3634_assigment.Database.SessionInfo;
@@ -22,9 +23,9 @@ public class RegisterActivity extends AppCompatActivity {
     public final static String NEW_PASSWORD = "com.example.a3634_assigment.new_password";
 
     //initialise widgets
-    private TextView newUsername;
-    private TextView newPassword;
-    private TextView newPassword2;
+    private TextInputLayout newUsername;
+    private TextInputLayout newPassword;
+    private TextInputLayout newPassword2;
     private Button submit;
 
     @Override
@@ -43,15 +44,15 @@ public class RegisterActivity extends AppCompatActivity {
     //passes data to user database and switches to activity for user to choose avatar
     public void press(View view) {
         Intent intent = new Intent(RegisterActivity.this, AvatarActivity.class);
-        intent.putExtra(NEW_USERNAME, newUsername.getText().toString());
-        intent.putExtra(NEW_PASSWORD, newPassword.getText().toString());
-        if (newUsername.getText().toString().equals("")) {
+        intent.putExtra(NEW_USERNAME, newUsername.getEditText().getText().toString());
+        intent.putExtra(NEW_PASSWORD, newPassword.getEditText().getText().toString());
+        if (newUsername.getEditText().getText().toString().equals("")) {
             // Missing Username Field
             Toast.makeText(getApplicationContext(), "Username field empty!", Toast.LENGTH_SHORT).show();
-        } else if (newPassword.getText().toString().equals("")) {
+        } else if (newPassword.getEditText().getText().toString().equals("")) {
             // Missing Password Field
             Toast.makeText(getApplicationContext(), "Password Field empty!", Toast.LENGTH_SHORT).show();
-        } else if (newPassword2.getText().toString()!= newPassword.getText().toString()){
+        } else if (newPassword2.getEditText().getText().toString().equals(newPassword.getEditText().getText().toString()) == false){
             Toast.makeText(getApplicationContext(), "Password does not match!", Toast.LENGTH_SHORT).show();
         }
             if (intent != null) {
