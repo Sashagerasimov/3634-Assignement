@@ -38,9 +38,6 @@ public class LearnFragment extends Fragment {
         levelUnlock = view.findViewById(R.id.currentLevelTextView);
         PlanetAdapter planetAdapter = new PlanetAdapter();
 
-        if(SessionInfo.currentUser.getScore()<100){
-            levelUnlock.setText("Earn "+ (100 - SessionInfo.currentUser.getScore()) + " more points to unlock Level Venus!");
-        }
 
 
         //unlocks levels according to user score
