@@ -15,6 +15,7 @@ import com.example.a3634_assigment.R;
 
 public class AvatarActivity extends AppCompatActivity {
 
+    //declare variables
     int newAvatar = 0;
     ImageView avatarSample;
 
@@ -25,9 +26,7 @@ public class AvatarActivity extends AppCompatActivity {
         avatarSample = findViewById(R.id.sample);
     }
 
-
-    //Officially registers user
-
+    //sets sample avatar image
     public void selectAvatar(View view){
         int[] avatars = {
                 R.id.avatar1,
@@ -48,18 +47,23 @@ public class AvatarActivity extends AppCompatActivity {
 
     }
 
+    //registers user
     public void onClickRegister(View view){
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Bundle bundle = getIntent().getExtras();
+                //if nothing is passed from bundle
                 if(bundle == null){
                     Toast.makeText(AvatarActivity.this, "failed!", Toast.LENGTH_SHORT).show();
                 }
+                //pass username and password from register activity to make a new user
                 else {
                     User user = new User(bundle.getString(RegisterActivity.NEW_USERNAME), bundle.getString(RegisterActivity.NEW_PASSWORD), newAvatar);
+                    //add user to database
                     SessionInfo.mUserDatabase.userDao().insertOneUser(user);
+                    //set current user
                     SessionInfo.currentUser = user;
                 }
             }

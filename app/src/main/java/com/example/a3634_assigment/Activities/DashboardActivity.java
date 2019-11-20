@@ -23,6 +23,7 @@ import com.example.a3634_assigment.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    //declare widgets
     private DrawerLayout drawer;
     public TextView headerUser;
     public ImageView headerAvatar;
@@ -32,6 +33,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //sets up side burger menu
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,9 +58,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         headerAvatar = (ImageView) headerView.findViewById(R.id.currentAvatar);
         headerUser.setText(SessionInfo.currentUser.getUsername());
         headerAvatar.setImageResource(Images.avatars[SessionInfo.currentUser.getAvatar()]);
-        //
-    }
 
+    }
+    //sets up tabs for side menu
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -86,7 +88,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         return true;
     }
 
-
+    //closes side menu on back button
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {

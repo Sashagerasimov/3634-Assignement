@@ -44,15 +44,11 @@ public class QuizActivity extends AppCompatActivity {
     public ColorStateList textColorDefaultRb;
 
     //declaring items needed
-    String planet;
-    ArrayList<String> questionList;
     ArrayList<Options> options;
     private int questionCounter = 0;
     private int questionCountTotal = 0;
     private int score = 0;
     private int correctCount;
-    //int currentQuestion = 0;
-    int currentAnswer;
     private Options currentQuestion;
 
     @Override
@@ -78,12 +74,13 @@ public class QuizActivity extends AppCompatActivity {
         status.setVisibility(View.INVISIBLE);
         correctScore.setVisibility(View.INVISIBLE);
 
-        //get questions from relevant planet activity
-        //questionList = QuizBank.getQuestions(PlanetActivity.name);
 
-        //retrieve options from planet activity
+        //retrieve questions, options and answers from planet bank
         options = QuizBank.getOptions(PlanetActivity.name);
+
+        //counts amount of options objects
         questionCountTotal = options.size();
+
         //shows next question
         refreshQuestion();
 
@@ -98,33 +95,38 @@ public class QuizActivity extends AppCompatActivity {
                         Toast.makeText(QuizActivity.this, "Please Select an Answer", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    refreshQuestion();
+                    refreshQuestion();//show next question
                 }
             }
         });
 
     }
 
+    //show next question
     private void refreshQuestion() {
+        //sets radio button text colour to default
         rb1.setTextColor(textColorDefaultRb);
         rb2.setTextColor(textColorDefaultRb);
         rb3.setTextColor(textColorDefaultRb);
         rb4.setTextColor(textColorDefaultRb);
-        radioGroup.clearCheck();
+        radioGroup.clearCheck(); //clears check
 
-
+        //if questions still remaining
         if (questionCounter < questionCountTotal) {
             currentQuestion = options.get(questionCounter);
+            //set question textview and option radio buttons
             question.setText(currentQuestion.getQuestion());
             rb1.setText(currentQuestion.getOption1());
             rb2.setText(currentQuestion.getOption2());
             rb3.setText(currentQuestion.getOption3());
             rb4.setText(currentQuestion.getOption4());
 
+            //add 1 to question counter
             questionCounter++;
             answered = false;
             mark.setText("Confirm");
         } else {
+            //close quiz activity
             finish();
         }
     }
@@ -132,52 +134,46 @@ public class QuizActivity extends AppCompatActivity {
     private void markQuestion() {
         answered = true;
 
+        //get id of selected radiobutton
         int selectedId = radioGroup.getCheckedRadioButtonId();
-        RadioButton radioButtonSelected = findViewById(selectedId);
-        //currentScore.setText(String.valueOf(selectedId));
-        //RadioButton radioButtonSelected = findViewById(radioGroup.getCheckedRadioButtonId());
-        int answerNo = radioGroup.indexOfChild(radioButtonSelected) + 1;
-        //If the answer selected is correct
-        //up until the last question
 
+        //find radiobutton selected
+        RadioButton radioButtonSelected = findViewById(selectedId);
+
+        //get index of radiobutton and add 1, assign it to the option number chosen
+        int answerNo = radioGroup.indexOfChild(radioButtonSelected) + 1;
+
+        //If the answer selected is correct
         if (answerNo == currentQuestion.getAnswerNumber()) {
             score += 10; //increase score by 10
-            SessionInfo.currentUser.setScore(SessionInfo.currentUser.getScore() + score);
-            SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername());
-            correctCount++;
+            SessionInfo.currentUser.setScore(SessionInfo.currentUser.getScore() + score); //immediately updates score of current user
+            SessionInfo.mUserDatabase.userDao().updateScore(score, SessionInfo.currentUser.getUsername()); //updates score of current user
+            correctCount++; //increases number of correct questions by 1
             currentScore.setVisibility(View.VISIBLE);
             currentScore.setText(String.valueOf(score));
-            if(SessionInfo.currentUser.getScore() == 200){
+
+            //pop ups for level unlocked
+            if (SessionInfo.currentUser.getScore() == 200) {
                 Toast.makeText(getApplicationContext(), "Level Venus Unlocked!", Toast.LENGTH_SHORT).show();
-            }
-            else if(SessionInfo.currentUser.getScore() == 300){
+            } else if (SessionInfo.currentUser.getScore() == 300) {
                 Toast.makeText(getApplicationContext(), "Level Earth Unlocked!", Toast.LENGTH_SHORT).show();
-            }
-            else if(SessionInfo.currentUser.getScore() == 400){
+            } else if (SessionInfo.currentUser.getScore() == 400) {
                 Toast.makeText(getApplicationContext(), "Level Mars Unlocked!", Toast.LENGTH_SHORT).show();
-            }
-            else if(SessionInfo.currentUser.getScore() == 500){
+            } else if (SessionInfo.currentUser.getScore() == 500) {
                 Toast.makeText(getApplicationContext(), "Level Jupiter Unlocked!", Toast.LENGTH_SHORT).show();
-            }
-            else if(SessionInfo.currentUser.getScore() == 600){
+            } else if (SessionInfo.currentUser.getScore() == 600) {
                 Toast.makeText(getApplicationContext(), "Level Saturn Unlocked!", Toast.LENGTH_SHORT).show();
-            }
-            else if(SessionInfo.currentUser.getScore() == 700){
+            } else if (SessionInfo.currentUser.getScore() == 700) {
                 Toast.makeText(getApplicationContext(), "Level Uranus Unlocked!", Toast.LENGTH_SHORT).show();
-            }
-            else if(SessionInfo.currentUser.getScore() == 800){
+            } else if (SessionInfo.currentUser.getScore() == 800) {
                 Toast.makeText(getApplicationContext(), "Level Neptune Unlocked!", Toast.LENGTH_SHORT).show();
-            }
-            else if(SessionInfo.currentUser.getScore() == 900){
+            } else if (SessionInfo.currentUser.getScore() == 900) {
                 Toast.makeText(getApplicationContext(), "Level Pluto Unlocked!", Toast.LENGTH_SHORT).show();
             }
 
             //refreshQuestion();
             //display the increased score
         }
-
-
-
 
 
         showAnswer();

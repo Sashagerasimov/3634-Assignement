@@ -27,9 +27,12 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
+
     //LOGIN CLASS
 
-    private DrawerLayout drawer;
+
+    //declare widgets
+
     public Button rego;
     public TextInputLayout username;
     public TextInputLayout password;
@@ -37,20 +40,27 @@ public class MainActivity extends AppCompatActivity {
     public TextView message;
 
     // implements NavigationView.OnNavigationItemSelectedListener
-    //https://codinginflow.com/tutorials/android/textinputlayout
+    /*
+    Resource link: https://codinginflow.com/tutorials/android/textinputlayout
+    Source Date: 2019
+    Author: Coding in Flow
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //instantiates database once activity opens
         SessionInfo.createDB(this);
 
+        //linked widgets to xml
         rego = findViewById(R.id.button);
         username = findViewById(R.id.un);
         password = findViewById(R.id.pw);
         login = findViewById(R.id.login);
         message = findViewById(R.id.message);
-        //message.s
+
+        //if user does not have account, takes user to Register page
         rego.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,26 +70,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //do following if login button clicked
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //retrieves user by username from instantiated database
                 User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().getText().toString());
-
-                if (loginUser == null){
+                //if user doesn't exist, show toast
+                if (loginUser == null) {
                     Toast.makeText(getApplicationContext(), "Credentials incorrect or User doesn't exist", Toast.LENGTH_SHORT).show();
                 }
-
-                else if(username.getEditText().getText().toString().equals("")) {
-                    // Missing Username Field
+                // Missing Username Field
+                else if (username.getEditText().getText().toString().equals("")) {
                     username.setError("Username field empty!");
-                } else if (password.getEditText().getText().toString().equals("")) {
-                    // Missing Password Field
+                }
+                // Missing Password Field
+                else if (password.getEditText().getText().toString().equals("")) {
                     password.setError("Password field empty!");
                 }
+                //username and password match with what is kept in database
                 else if (loginUser.getPassword().equals(password.getEditText().getText().toString())) {
+                    //go to dashboard activity
                     Context context = v.getContext();
                     Intent intent = new Intent(context, DashboardActivity.class);
                     context.startActivity(intent);
+                    //sets current user object to the user that has logged in
                     SessionInfo.currentUser = loginUser;
                 }
 
@@ -89,98 +104,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-/*
-    public void confirmInput(View v) {
-
-            User loginUser = SessionInfo.mUserDatabase.userDao().returnOneUserByUserName(username.getEditText().getText().toString());
-
-        if(username.getEditText().getText().toString().equals("")) {
-            // Missing Username Field
-            username.setError("Please fill out the username field");
-            } else if (password.getEditText().getText().toString().equals("")) {
-            // Missing Password Field
-            password.setError("Please fill out the password field");
-            }
-            else if (loginUser == null){
-                Toast.makeText(this, "Credentials incorrect or User doesn't exist", Toast.LENGTH_SHORT).show();
-            }
-            else if (loginUser.getPassword().equals(password.getEditText().getText().toString())) {
-
-                Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-                startActivity(intent);
-                SessionInfo.currentUser = loginUser;
-            }
-            else {
-                Toast.makeText(this, "Credentials Incorrect. Please try again", Toast.LENGTH_LONG).show();
-            }
-
-        return;
-        }
-
-    }
-
- */
-
-
-
-
-        /*
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new LearnFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_learn);
-        }
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_learn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new LearnFragment()).commit();
-                break;
-            case R.id.nav_achievements:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AchievementsFragment()).commit();
-                break;
-            case R.id.nav_notes:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new NotesFragment()).commit();
-                break;
-            case R.id.nav_settings:
-                Intent myIntent = new Intent(MainActivity.this, SettingsActivity.class);
-                MainActivity.this.startActivity(myIntent);
-                break;
-
-
-        }
-
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-         */
-
 
