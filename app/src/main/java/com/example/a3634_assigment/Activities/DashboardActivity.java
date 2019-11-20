@@ -76,9 +76,13 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new NotesFragment()).commit();
                 break;
+            case R.id.nav_watch:
+                Intent myIntentOne = new Intent(DashboardActivity.this, WatchActivity.class);
+                DashboardActivity.this.startActivity(myIntentOne);
+                break;
             case R.id.nav_settings:
-                Intent myIntent = new Intent(DashboardActivity.this, SettingsActivity.class);
-                DashboardActivity.this.startActivity(myIntent);
+                Intent myIntentTwo = new Intent(DashboardActivity.this, SettingsActivity.class);
+                DashboardActivity.this.startActivity(myIntentTwo);
                 break;
 
 
