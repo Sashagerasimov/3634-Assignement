@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.a3634_assigment.Database.SampleData;
 import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;
@@ -52,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //instantiates database once activity opens
         SessionInfo.createDB(this);
+
+        //populates with Sample Data
+        SampleData.createSampleUsers();
+
 
         //linked widgets to xml
         rego = findViewById(R.id.button);
