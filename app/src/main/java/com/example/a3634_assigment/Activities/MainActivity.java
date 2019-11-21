@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     context.startActivity(intent);
                     //sets current user object to the user that has logged in
                     SessionInfo.currentUser = loginUser;
+                    finish();
                 }
 
             }

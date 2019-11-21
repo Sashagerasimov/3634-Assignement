@@ -19,6 +19,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     public EditText noteTitle;
     public EditText noteContent;
+    //public ImageButton add;
     public FloatingActionButton add;
 
     @Override
@@ -47,7 +48,6 @@ public class CreateNoteActivity extends AppCompatActivity {
                 Notes object = new Notes(nId, nTitle, nContent);
                 NotesFragment.notesList.add(object);
                 Toast.makeText(CreateNoteActivity.this, "Note created!", Toast.LENGTH_SHORT).show();
-                NotesFragment.notesAdapter.notifyDataSetChanged();
 
                 SessionInfo.mNotesDatabase.notesDao().insertOneNote(object);
                 finish();
