@@ -25,6 +25,7 @@ public class PlanetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         //SETTING UP PLANETS
