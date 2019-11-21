@@ -162,6 +162,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Mercury Magician");
+                args.putInt("keySticker", 0);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -178,6 +179,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Venus Veteran");
+                args.putInt("keySticker", 1);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -193,6 +195,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Earth Expert");
+                args.putInt("keySticker", 2);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -209,6 +212,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Mars Maniac");
+                args.putInt("keySticker", 3);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -224,6 +228,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Jupiter Janitor");
+                args.putInt("keySticker", 4);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -239,6 +244,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Saturn Superstar");
+                args.putInt("keySticker", 5);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -254,6 +260,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Uranus Underdog");
+                args.putInt("keySticker", 6);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -269,6 +276,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Neptune Novice");
+                args.putInt("keySticker", 7);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
@@ -284,6 +292,7 @@ public class AchievementsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putString("key", "Pluto Perfectionist");
+                args.putInt("keySticker", 8);
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");

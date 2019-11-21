@@ -18,9 +18,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
+import com.example.a3634_assigment.Models.Images;
 import com.example.a3634_assigment.R;
 
 
@@ -44,6 +46,7 @@ public class DialogActivity extends AppCompatDialogFragment {
 
     private TextView mActionBack;
     private TextView level;
+    private ImageView sticker;
 
     @Nullable
     @Override
@@ -52,12 +55,15 @@ public class DialogActivity extends AppCompatDialogFragment {
 
         mActionBack = view.findViewById(R.id.popup_back);
         level = view.findViewById(R.id.levelTextView);
+        sticker = view.findViewById(R.id.stickerImageView);
 
         Bundle bundle = getArguments();
 
         if (bundle != null) {
-            String value2 = bundle.getString("key");
-            level.setText(value2);
+            String stringValue = bundle.getString("key");
+            int stickerValue = bundle.getInt("keySticker");
+            level.setText(stringValue);
+            sticker.setImageResource(Images.stickers[stickerValue]);
         }
 
         mActionBack.setOnClickListener(new View.OnClickListener() {
