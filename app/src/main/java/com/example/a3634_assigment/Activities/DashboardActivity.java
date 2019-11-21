@@ -56,7 +56,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         View headerView = navigationView.getHeaderView(0);
         headerUser = (TextView) headerView.findViewById(R.id.navUserName);
         headerAvatar = (ImageView) headerView.findViewById(R.id.currentAvatar);
-        headerUser.setText(SessionInfo.currentUser.getUsername());
+        //headerUser.setText(SessionInfo.currentUser.getUsername());
+        headerUser.setText(String.valueOf(SessionInfo.currentUser.getUsername()));
         headerAvatar.setImageResource(Images.avatars[SessionInfo.currentUser.getAvatar()]);
 
     }
