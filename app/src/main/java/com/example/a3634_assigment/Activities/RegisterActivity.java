@@ -27,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputLayout newPassword;
     private TextInputLayout newPassword2;
     private Button submit;
+    private Button backToLoginActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         newPassword = findViewById(R.id.newPassword);
         newPassword2 = findViewById(R.id.newPassword2);
         submit = findViewById(R.id.submit);
+        backToLoginActivity = findViewById(R.id.back);
 
     }
 
@@ -62,8 +64,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
 
-
-
+        public void backToLogin(View view){
+            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
 
 
 

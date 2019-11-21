@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/appicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.QuizActivity"></activity>
+        <activity android:name=".Activities.DialogActivity"></activity>
+        <activity android:name=".Activities.QuizActivity" />
         <activity android:name=".Activities.AvatarActivity" />
         <activity
             android:name=".Activities.DashboardActivity"
