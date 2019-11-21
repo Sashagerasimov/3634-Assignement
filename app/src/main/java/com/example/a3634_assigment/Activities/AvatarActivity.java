@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a3634_assigment.Database.SessionInfo;
@@ -16,14 +17,19 @@ import com.example.a3634_assigment.R;
 public class AvatarActivity extends AppCompatActivity {
 
     //declare variables
-    int newAvatar = 0;
+    int newAvatar =0;
     ImageView avatarSample;
+    TextView usernameSample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avatar);
         avatarSample = findViewById(R.id.sample);
+        usernameSample = findViewById(R.id.usernameSample);
+
+        Bundle bundle = getIntent().getExtras();
+        usernameSample.setText(bundle.getString(RegisterActivity.NEW_USERNAME));
     }
 
     //sets sample avatar image
@@ -37,14 +43,13 @@ public class AvatarActivity extends AppCompatActivity {
                 R.id.avatar6,
         };
 
-        int newAvatar = 0;
+        //int newAvatar = 0;
         while (newAvatar < avatars.length) {
             if (view.getId() == avatars[newAvatar])
                 break;
             newAvatar++;
         }
         avatarSample.setImageResource(Images.avatars[newAvatar]);
-
     }
 
     //registers user
@@ -54,18 +59,11 @@ public class AvatarActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Bundle bundle = getIntent().getExtras();
-                //if nothing is passed from bundle
-                if(bundle == null){
-                    Toast.makeText(AvatarActivity.this, "failed!", Toast.LENGTH_SHORT).show();
-                }
-                //pass username and password from register activity to make a new user
-                else {
                     User user = new User(bundle.getString(RegisterActivity.NEW_USERNAME), bundle.getString(RegisterActivity.NEW_PASSWORD), newAvatar);
                     //add user to database
                     SessionInfo.mUserDatabase.userDao().insertOneUser(user);
                     //set current user
                     SessionInfo.currentUser = user;
-                }
             }
         }) .start();
 

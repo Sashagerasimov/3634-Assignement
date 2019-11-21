@@ -57,10 +57,9 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (newPassword2.getEditText().getText().toString().equals(newPassword.getEditText().getText().toString()) == false){
             Toast.makeText(getApplicationContext(), "Password does not match!", Toast.LENGTH_SHORT).show();
         }
-            if (intent != null) {
+
+        else {
                 startActivity(intent);
-            } else {
-                System.out.println("hello");
             }
         }
 
