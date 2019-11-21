@@ -76,9 +76,6 @@ public class NotesFragment extends Fragment {
         return view;
     }
 
-    public static Notes getNotesById(int catsID2) {
-        return notesList.get(catsID2);
-    }
 
     ItemTouchHelper.SimpleCallback itemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
         @Override
@@ -90,6 +87,7 @@ public class NotesFragment extends Fragment {
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             notesList.remove(viewHolder.getAdapterPosition());
             notesAdapter.notifyDataSetChanged();
+            //SessionInfo.mNotesDatabase.notesDao().deleteNotes();
         }
     };
 

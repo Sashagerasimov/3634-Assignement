@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.a3634_assigment.Activities.AvatarActivity;
 import com.example.a3634_assigment.Activities.DashboardActivity;
@@ -158,19 +159,15 @@ public class AchievementsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Mercury Magician");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
 
 
-                DialogActivity dialogBadge = new DialogActivity();
-
-                Bundle bundle = new Bundle();
-                bundle.putString("key", "Mercury Magician");
-                dialogBadge.setArguments(bundle);
-                //intent.putExtra(PLANET, "Mercury Magician");
-
-                //badgeName.setText("Mercury Magician");
+                dialog.setArguments(args);
             }
         });
 
@@ -178,192 +175,123 @@ public class AchievementsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Venus Veteran");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Venus Veteran");
+
+
+                dialog.setArguments(args);
             }
         });
         badge3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Earth Expert");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Earth Expert");
+
+
+                dialog.setArguments(args);
             }
         });
+
         badge4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Mars Maniac");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Mars Maniac");
+
+
+                dialog.setArguments(args);
             }
         });
         badge5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Jupiter Janitor");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Jupiter Janitor");
+
+
+                dialog.setArguments(args);
             }
         });
         badge6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Saturn Superstar");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Saturn Superstar");
+
+
+                dialog.setArguments(args);
             }
         });
         badge7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Uranus Underdog");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Uranus Underdog");
+
+
+                dialog.setArguments(args);
             }
         });
         badge8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Neptune Novice");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Neptune Novice");
+
+
+                dialog.setArguments(args);
             }
         });
         badge9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                Bundle args = new Bundle();
+                args.putString("key", "Pluto Perfectionist");
                 DialogActivity dialog = new DialogActivity();
                 dialog.setTargetFragment(AchievementsFragment.this, 1);
                 dialog.show(getFragmentManager(), "MyCustomDialog");
-                //badgeName.setText("Pluto Perfectionist");
+
+
+                dialog.setArguments(args);
             }
         });
-
-        //badgeDialog.setContentView(R.layout.dialog_level_unlocked);
-        //badgeName = badgeDialog.findViewById(R.id.levelTextView);
-        //close = (Button) badgeDialog.findViewById(R.id.popup_back);
-
-        /*
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                badgeDialog.dismiss();
-            }
-        });
-
-         */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        badgeOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Venus Veteran");
-            }
-        });
-
-            badgeTwo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                    badgeDialog.show();
-                    badgeName.setText("Mercury Magician");
-                }
-            });
-        badgeThree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Earth Elephant");
-            }
-        });
-        badgeFour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Mars M");
-            }
-        });
-        badgeFive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Jupiter J");
-            }
-        });
-        badgeSix.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Saturn Sailor");
-            }
-        });
-        badgeSeven.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Uranus U");
-            }
-        });
-        badgeEight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Neptune N");
-            }
-        });
-        badgeNine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                badgeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                badgeDialog.show();
-                badgeName.setText("Pluto P");
-            }
-        });
-
-
-         */
-
-
-
-
 
 
         return view;

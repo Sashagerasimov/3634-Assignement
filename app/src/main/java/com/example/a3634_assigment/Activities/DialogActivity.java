@@ -53,11 +53,12 @@ public class DialogActivity extends AppCompatDialogFragment {
         mActionBack = view.findViewById(R.id.popup_back);
         level = view.findViewById(R.id.levelTextView);
 
-        Bundle bundle = this.getArguments();
+        Bundle bundle = getArguments();
+
         if (bundle != null) {
-            String value2 = bundle.getString("key", "");
+            String value2 = bundle.getString("key");
+            level.setText(value2);
         }
-        //level.setText(value2);
 
         mActionBack.setOnClickListener(new View.OnClickListener() {
             @Override
