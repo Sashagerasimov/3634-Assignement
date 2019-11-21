@@ -1,27 +1,29 @@
 package com.example.a3634_assigment.Models;
 
-import androidx.room.ColumnInfo;
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Notes {
-
-  //  @PrimaryKey
-    private static int id = 0;
-
+    @NonNull
+    @PrimaryKey
+    private int id;
     private String title,
             content;
+
+
     public Notes() {
     }
 
-    public Notes(int NotesId, String title, String content) {
+    public Notes(@NonNull int NotesId, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;

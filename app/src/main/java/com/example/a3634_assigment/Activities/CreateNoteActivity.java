@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Fragments.NotesFragment;
 import com.example.a3634_assigment.Models.Notes;
 import com.example.a3634_assigment.R;
@@ -48,6 +49,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 Toast.makeText(CreateNoteActivity.this, "Note created!", Toast.LENGTH_SHORT).show();
                 NotesFragment.notesAdapter.notifyDataSetChanged();
 
+                SessionInfo.mNotesDatabase.notesDao().insertOneNote(object);
                 finish();
 
             }

@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a3634_assigment.Activities.CreateNoteActivity;
 import com.example.a3634_assigment.Adapters.NotesAdapter;
+import com.example.a3634_assigment.Database.SessionInfo;
 import com.example.a3634_assigment.Models.Notes;
 import com.example.a3634_assigment.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,12 +35,17 @@ public class NotesFragment extends Fragment {
     private RecyclerView recyclerView;
     public static NotesAdapter notesAdapter;
     public FloatingActionButton createNote;
-    public static ArrayList<Notes> notesList = new ArrayList<>();
+    public static List<Notes> notesList;
 
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         notesAdapter = new NotesAdapter();
+
+
+        //get all notes from db
+        //notesList = SessionInfo.mNotesDatabase.notesDao().getAll();
+
 
         //set Recycler View
         View view = inflater.inflate(R.layout.fragment_notebook, container, false);
@@ -47,10 +53,15 @@ public class NotesFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
         new ItemTouchHelper(itemTouchCallback).attachToRecyclerView(recyclerView);
-        notesAdapter.setData(notesList);
 
+
+        //sets data
+        notesAdapter.setData((ArrayList<Notes>) notesList);
         recyclerView.setAdapter(notesAdapter);
 
+        //mUsers = SessionData.mUserDatabase.mUserDao().getAll();
+
+        //takes you to class to create new note
         createNote = (FloatingActionButton) view.findViewById(R.id.button);
         createNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +93,14 @@ public class NotesFragment extends Fragment {
         }
     };
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        notesList = SessionInfo.mNotesDatabase.notesDao().getAll();
+    }
 }
+
 
 
 
