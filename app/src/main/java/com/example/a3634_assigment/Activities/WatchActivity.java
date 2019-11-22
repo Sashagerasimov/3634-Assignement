@@ -28,11 +28,13 @@ public class WatchActivity extends YouTubeBaseActivity {
             playButton = findViewById(R.id.play_button);
             youtubePlayer = findViewById(R.id.youtube_player);
 
+
             //when button is pressed loading playlist in from provided url
             onInitializedListener = new YouTubePlayer.OnInitializedListener() {
                 @Override
                 public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                     youTubePlayer.loadPlaylist("PL2gLpWRK0QlA3ON8Mty31V9Ixqbnh2exg");
+                    youTubePlayer.setShowFullscreenButton(false);
                 }
 
                 @Override
