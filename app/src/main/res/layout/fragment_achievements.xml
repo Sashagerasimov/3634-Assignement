@@ -23,7 +23,7 @@
         android:id="@+id/cardView"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -59,11 +59,22 @@
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/userAvatar"></TextView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="0dp"
+            android:paddingTop="95dp"
+            android:text="Tap on badges to view"
+            android:textSize="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/userAvatar"></TextView>
     </androidx.cardview.widget.CardView>
 
 
     <GridLayout
-        android:layout_width="350dp"
+        android:layout_width="380dp"
         android:layout_height="350dp"
         android:columnCount="3"
         android:columnOrderPreserved="false"
@@ -77,22 +88,24 @@
         app:layout_constraintVertical_bias="0.247">
 
 
-
         <androidx.cardview.widget.CardView
-        android:id="@+id/badgeOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_gravity="center"
-            android:clickable="true"
-            app:cardCornerRadius="25dp">
-        <ImageView
-            android:id="@+id/badge1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:id="@+id/badgeOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="center"
-            android:src="@drawable/b1"/>
+            android:clickable="true"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:id="@+id/badge1"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/b1" />
 
         </androidx.cardview.widget.CardView>
 
@@ -104,13 +117,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b2"/>
+                android:padding="10dp"
+                android:src="@drawable/b2" />
 
         </androidx.cardview.widget.CardView>
 
@@ -122,13 +137,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b3"/>
+                android:padding="10dp"
+                android:src="@drawable/b3" />
 
         </androidx.cardview.widget.CardView>
 
@@ -140,13 +157,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge4"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b4"/>
+                android:padding="10dp"
+                android:src="@drawable/b4" />
 
         </androidx.cardview.widget.CardView>
 
@@ -158,13 +177,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge5"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b5"/>
+                android:padding="10dp"
+                android:src="@drawable/b5" />
 
         </androidx.cardview.widget.CardView>
 
@@ -176,13 +197,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge6"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b6"/>
+                android:padding="5dp"
+                android:src="@drawable/b6" />
 
         </androidx.cardview.widget.CardView>
 
@@ -194,13 +217,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge7"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b7"/>
+                android:padding="5dp"
+                android:src="@drawable/b7" />
 
         </androidx.cardview.widget.CardView>
 
@@ -212,13 +237,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge8"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b8"/>
+                android:padding="10dp"
+                android:src="@drawable/b8" />
 
         </androidx.cardview.widget.CardView>
 
@@ -230,13 +257,15 @@
             android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:clickable="true"
-            app:cardCornerRadius="25dp">
+            app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/badge9"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_gravity="center"
-                android:src="@drawable/b9"/>
+                android:padding="10dp"
+                android:src="@drawable/b9" />
 
         </androidx.cardview.widget.CardView>
 

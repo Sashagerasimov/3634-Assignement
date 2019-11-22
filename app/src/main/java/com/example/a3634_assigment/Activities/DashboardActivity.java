@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.a3634_assigment.Database.SessionInfo;
+import com.example.a3634_assigment.Databases.SessionInfo;
 import com.example.a3634_assigment.Fragments.AchievementsFragment;
 import com.example.a3634_assigment.Fragments.LearnFragment;
 import com.example.a3634_assigment.Fragments.NotesFragment;
@@ -25,6 +25,7 @@ import com.example.a3634_assigment.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     //declare widgets
     private DrawerLayout drawer;
     public TextView headerUser;
@@ -44,6 +45,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //accessibility best practice
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -59,12 +61,13 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         View headerView = navigationView.getHeaderView(0);
         headerUser = (TextView) headerView.findViewById(R.id.navUserName);
         headerAvatar = (ImageView) headerView.findViewById(R.id.currentAvatar);
+
         //headerUser.setText(SessionInfo.currentUser.getUsername());
         headerUser.setText(String.valueOf(SessionInfo.currentUser.getUsername()));
         headerAvatar.setImageResource(Images.avatars[SessionInfo.currentUser.getAvatar()]);
 
     }
-    //sets up tabs for side menu
+    //sets up tabs for side menu and handle switching the frame layout
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -95,8 +98,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         return true;
     }
 
+    //required to double press to exit
     boolean doubleBackToExitPressedOnce = false;
 
+    //back button closes the app side menu if it extended
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {

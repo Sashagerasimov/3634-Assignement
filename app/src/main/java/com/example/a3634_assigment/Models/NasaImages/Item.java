@@ -3,14 +3,13 @@ package com.example.a3634_assigment.Models.NasaImages;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import java.util.List;
 
-import com.example.a3634_assigment.Database.Converters;
-import com.example.a3634_assigment.Database.ConvertersTwo;
+import com.example.a3634_assigment.AsyncTasks.ObjectConverters.Converters;
+import com.example.a3634_assigment.AsyncTasks.ObjectConverters.ConvertersTwo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

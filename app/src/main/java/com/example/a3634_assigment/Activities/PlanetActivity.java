@@ -40,6 +40,7 @@ public class PlanetActivity extends AppCompatActivity {
         Fragment defaultFragment = new ReadFragment();
         swapFragment(defaultFragment);
 
+        //Managing the bottom navigation menu switching between fragment in the frame layout
         bottomNavigationView = findViewById(R.id.navigation_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -63,6 +64,7 @@ public class PlanetActivity extends AppCompatActivity {
         });
     }
 
+    //handling the transactions of fragments
     private void swapFragment(Fragment selectedFragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

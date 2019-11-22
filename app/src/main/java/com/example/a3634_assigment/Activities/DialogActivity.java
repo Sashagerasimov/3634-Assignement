@@ -59,6 +59,7 @@ public class DialogActivity extends AppCompatDialogFragment {
 
         Bundle bundle = getArguments();
 
+        //grabbing the sticker value to display when badge is clicked on
         if (bundle != null) {
             String stringValue = bundle.getString("key");
             int stickerValue = bundle.getInt("keySticker");
@@ -74,10 +75,11 @@ public class DialogActivity extends AppCompatDialogFragment {
             }
         });
 
-
         return view;
     }
 
+
+    //required onAttach method for badge dialog popup with try catch
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

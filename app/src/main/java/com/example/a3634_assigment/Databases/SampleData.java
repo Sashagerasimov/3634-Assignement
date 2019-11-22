@@ -1,4 +1,4 @@
-package com.example.a3634_assigment.Database;
+package com.example.a3634_assigment.Databases;
 
 import com.example.a3634_assigment.Models.User;
 

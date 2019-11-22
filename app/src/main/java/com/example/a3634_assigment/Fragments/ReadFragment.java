@@ -30,6 +30,7 @@ public class ReadFragment extends Fragment {
     private TextView description;
     private TextView wiki;
 
+    //best practice empty constructor
     public ReadFragment() {
 
     }
@@ -49,6 +50,7 @@ public class ReadFragment extends Fragment {
         Context context = getContext();
         final RequestQueue requestQueue = Volley.newRequestQueue(context);
 
+        //grabs string and cleans it removing bracketed text and any newline characters
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -61,6 +63,7 @@ public class ReadFragment extends Fragment {
             }
         };
 
+        //best practice error hadling
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
             public void onErrorResponse (VolleyError error) {

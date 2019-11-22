@@ -14,9 +14,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.a3634_assigment.Database.SessionInfo;
+import com.example.a3634_assigment.Databases.SessionInfo;
 import com.example.a3634_assigment.Models.Options;
-import com.example.a3634_assigment.Models.QuizBank;
+import com.example.a3634_assigment.Databases.QuizBank;
 import com.example.a3634_assigment.R;
 
 import java.util.ArrayList;
@@ -99,6 +99,7 @@ public class QuizActivity extends AppCompatActivity {
                     }
                 } else {
                     refreshQuestion();//show next question
+                    status.setText("");
                 }
             }
         });

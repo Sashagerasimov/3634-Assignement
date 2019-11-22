@@ -28,6 +28,7 @@ public class WatchActivity extends YouTubeBaseActivity {
             playButton = findViewById(R.id.play_button);
             youtubePlayer = findViewById(R.id.youtube_player);
 
+            //when button is pressed loading playlist in from provided url
             onInitializedListener = new YouTubePlayer.OnInitializedListener() {
                 @Override
                 public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
@@ -40,6 +41,7 @@ public class WatchActivity extends YouTubeBaseActivity {
                 }
             };
 
+            //passing api key to allow playback of youtube content
             playButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

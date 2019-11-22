@@ -1,4 +1,4 @@
-package com.example.a3634_assigment.Database;
+package com.example.a3634_assigment.Databases;
 
 import com.example.a3634_assigment.Models.Planet;
 import com.example.a3634_assigment.R;
@@ -113,47 +113,47 @@ public class PlanetBank {
         planets.put(1, new Planet(
                 1,
                 "Mercury",
-                R.drawable.appicon
+                R.drawable.b1
         ));
         planets.put(2, new Planet(
                 2,
                 "Venus",
-                R.drawable.appicon
+                R.drawable.b2
         ));
         planets.put(3, new Planet(
                 3,
                 "Earth",
-                R.drawable.appicon
+                R.drawable.b3
         ));
         planets.put(4, new Planet(
                 4,
                 "Mars",
-                R.drawable.appicon
+                R.drawable.b4
         ));
         planets.put(5, new Planet(
                 5,
                 "Jupiter",
-                R.drawable.appicon
+                R.drawable.b5
         ));
         planets.put(6, new Planet(
                 6,
                 "Saturn",
-                R.drawable.appicon
+                R.drawable.b6
         ));
         planets.put(7, new Planet(
                 7,
                 "Uranus",
-                R.drawable.appicon
+                R.drawable.b7
         ));
         planets.put(8, new Planet(
                 8,
                 "Neptune",
-                R.drawable.appicon
+                R.drawable.b8
         ));
         planets.put(9, new Planet(
                 9,
                 "Pluto",
-                R.drawable.appicon
+                R.drawable.b9
         ));
     }
 }

@@ -45,6 +45,8 @@ public class PlanetAdapter extends RecyclerView.Adapter<PlanetAdapter.PlanetView
         PlanetAdapter.PlanetViewHolder planetViewHolder= new PlanetAdapter.PlanetViewHolder(view);
         return planetViewHolder;
     }
+    //onBindViewHolder uses intents to pass name of current planet which
+    // will be used for the planet activity
     @Override
     public void onBindViewHolder(@NonNull final PlanetViewHolder holder, final int position) {
         final Planet currentPlanet = planets.get(position);

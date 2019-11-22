@@ -25,9 +25,6 @@ public class TestMeFragment extends Fragment {
     //initialising widgets
     private Button startQuiz;
 
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,7 +42,6 @@ public class TestMeFragment extends Fragment {
                 context.startActivity(intent);
             }
         });
-
 
         return view;
     }

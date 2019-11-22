@@ -2,7 +2,7 @@ package com.example.a3634_assigment.AsyncTasks;
 
 import android.os.AsyncTask;
 
-import com.example.a3634_assigment.Database.NasaItemsDb;
+import com.example.a3634_assigment.Databases.NasaItemsDb;
 import com.example.a3634_assigment.Models.NasaImages.Item;
 
 import java.util.List;

@@ -1,10 +1,6 @@
 package com.example.a3634_assigment.Fragments;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import com.example.a3634_assigment.Activities.AvatarActivity;
-import com.example.a3634_assigment.Activities.DashboardActivity;
 import com.example.a3634_assigment.Activities.DialogActivity;
-import com.example.a3634_assigment.Activities.RegisterActivity;
-import com.example.a3634_assigment.Database.SessionInfo;
+import com.example.a3634_assigment.Databases.SessionInfo;
 import com.example.a3634_assigment.Models.Images;
 import com.example.a3634_assigment.R;
 
@@ -306,6 +298,4 @@ public class AchievementsFragment extends Fragment {
         return view;
 
     }
-
-
 }

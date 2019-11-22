@@ -8,9 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.a3634_assigment.Database.SessionInfo;
+import com.example.a3634_assigment.Databases.SessionInfo;
 import com.example.a3634_assigment.Models.Images;
 import com.example.a3634_assigment.Models.User;
 import com.example.a3634_assigment.R;

@@ -1,4 +1,4 @@
-package com.example.a3634_assigment.Database;
+package com.example.a3634_assigment.DAOs;
 
 
 import androidx.room.Dao;
@@ -15,10 +15,6 @@ import java.util.List;
 @Dao
 public interface NotesDao {
 
-/*
-    @Insert (onConflict = OnConflictStrategy.REPLACE)
-    void insertNote(Notes note);
- */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertOneNote (Notes note);
 

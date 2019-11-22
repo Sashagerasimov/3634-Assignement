@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Watch Playlist"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/youtube_player" />
@@ -47,7 +48,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="@string/watch"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.youtube.player.YouTubePlayerView

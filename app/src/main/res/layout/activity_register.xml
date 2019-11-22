@@ -14,7 +14,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:onClick="press"
-        android:text="register"
+        android:text="Register"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newPassword2" />
 
@@ -99,7 +100,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:onClick="backToLogin"
-        android:text="Back To Login"
+        android:text="Back to Login"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newPassword2" />
@@ -112,6 +114,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/appicon" />
+        app:srcCompat="@mipmap/appicon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

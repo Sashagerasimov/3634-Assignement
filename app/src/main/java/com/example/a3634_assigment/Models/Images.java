@@ -34,5 +34,4 @@ public class Images {
             R.drawable.c8,
             R.drawable.c9,
     };
-
 }

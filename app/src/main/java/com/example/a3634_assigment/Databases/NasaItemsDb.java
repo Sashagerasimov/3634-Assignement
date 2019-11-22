@@ -1,4 +1,4 @@
-package com.example.a3634_assigment.Database;
+package com.example.a3634_assigment.Databases;
 
 import android.content.Context;
 
@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.a3634_assigment.DAOs.NasaItemsDao;
 import com.example.a3634_assigment.Models.NasaImages.Item;
 
 @Database(entities = {Item.class}, version = 1, exportSchema = false)

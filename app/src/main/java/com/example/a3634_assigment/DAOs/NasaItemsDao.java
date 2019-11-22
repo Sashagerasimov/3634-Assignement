@@ -1,4 +1,4 @@
-package com.example.a3634_assigment.Database;
+package com.example.a3634_assigment.DAOs;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a3634_assigment.Activities.CreateNoteActivity;
 import com.example.a3634_assigment.Adapters.NotesAdapter;
-import com.example.a3634_assigment.Database.SessionInfo;
+import com.example.a3634_assigment.Databases.SessionInfo;
 import com.example.a3634_assigment.Models.Notes;
 import com.example.a3634_assigment.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -42,11 +39,6 @@ public class NotesFragment extends Fragment {
 
         notesAdapter = new NotesAdapter();
 
-
-        //get all notes from db
-        //notesList = SessionInfo.mNotesDatabase.notesDao().getAll();
-
-
         //set Recycler View
         View view = inflater.inflate(R.layout.fragment_notebook, container, false);
         recyclerView = view.findViewById(R.id.rv_notes);
@@ -58,8 +50,6 @@ public class NotesFragment extends Fragment {
         //sets data
         notesAdapter.setData((ArrayList<Notes>) notesList);
         recyclerView.setAdapter(notesAdapter);
-
-        //mUsers = SessionData.mUserDatabase.mUserDao().getAll();
 
         //takes you to class to create new note
         createNote = (FloatingActionButton) view.findViewById(R.id.button);

@@ -26,6 +26,7 @@ public class ExploreImagesAdapter extends RecyclerView.Adapter<ExploreImagesAdap
 
     }
 
+    //standard viewHolder
     public static class ImageViewHolder extends RecyclerView.ViewHolder {
 
         public View view;
@@ -44,6 +45,8 @@ public class ExploreImagesAdapter extends RecyclerView.Adapter<ExploreImagesAdap
         ExploreImagesAdapter.ImageViewHolder imageViewHolder = new ExploreImagesAdapter.ImageViewHolder(view);
         return imageViewHolder;
     }
+
+    //onBindViewHolder uses intents to pass url and title for the relevant images
     @Override
     public void onBindViewHolder(@NonNull final ImageViewHolder holder, final int position) {
         final Item currentItem = images.get(position);

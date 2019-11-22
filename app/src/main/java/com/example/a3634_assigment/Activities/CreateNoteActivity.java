@@ -6,11 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.a3634_assigment.Database.SessionInfo;
+import com.example.a3634_assigment.Databases.SessionInfo;
 import com.example.a3634_assigment.Fragments.NotesFragment;
 import com.example.a3634_assigment.Models.Notes;
 import com.example.a3634_assigment.R;
@@ -20,7 +18,6 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     public EditText noteTitle;
     public EditText noteContent;
-    //public ImageButton add;
     public FloatingActionButton add;
 
     @Override
@@ -39,7 +36,8 @@ public class CreateNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String nTitle = noteTitle.getText().toString(); //gets you the contents of edit text
+                //gets you the contents of edit text
+                String nTitle = noteTitle.getText().toString();
                 String nContent = noteContent.getText().toString();
                 int nId = 0;
                 if (NotesFragment.notesList.isEmpty()){
@@ -48,19 +46,18 @@ public class CreateNoteActivity extends AppCompatActivity {
                 else {
                     nId = NotesFragment.notesList.get(NotesFragment.notesList.size() - 1).getId() + 1;
                 }
+
+                //creating note object to insert into database
                 Notes object = new Notes(nId, nTitle, nContent);
                 NotesFragment.notesList.add(object);
                 Toast.makeText(CreateNoteActivity.this, "Note created!", Toast.LENGTH_SHORT).show();
 
+                //adds note to database and ends activity
                 SessionInfo.mNotesDatabase.notesDao().insertOneNote(object);
                 NotesFragment.notesAdapter.notifyDataSetChanged();
                 finish();
-
             }
 
         });
-
-
-
     }
 }

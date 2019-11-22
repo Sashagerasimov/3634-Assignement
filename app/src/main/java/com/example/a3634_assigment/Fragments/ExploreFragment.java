@@ -1,8 +1,6 @@
 package com.example.a3634_assigment.Fragments;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,17 +24,12 @@ import com.example.a3634_assigment.AsyncTasks.AsyncTaskGetDelegate;
 import com.example.a3634_assigment.AsyncTasks.AsyncTaskInsertDelegate;
 import com.example.a3634_assigment.AsyncTasks.GetItemsAsyncTask;
 import com.example.a3634_assigment.AsyncTasks.InsertItemsAsyncTask;
-import com.example.a3634_assigment.Database.NasaItemsDb;
-import com.example.a3634_assigment.Models.NasaImages.Collection;
+import com.example.a3634_assigment.Databases.NasaItemsDb;
 import com.example.a3634_assigment.Models.NasaImages.Item;
-import com.example.a3634_assigment.Models.NasaImages.Link;
-import com.example.a3634_assigment.Models.NasaImages.Link_;
 import com.example.a3634_assigment.Models.NasaImages.NasaResponse;
 import com.example.a3634_assigment.R;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,13 +68,11 @@ public class ExploreFragment extends Fragment implements AsyncTaskInsertDelegate
                 recyclerView.setAdapter(exploreImagesAdapter);
 
                 NasaItemsDb db = NasaItemsDb.getInstance(getContext());
-                // Our db insert method call used to be here last week. But that's on the main thread.
-                // So we replace it with an AsyncTask that runs the query on a worker thread.
-//                db.bookDao().insertAll(bestsellers);
                 InsertItemsAsyncTask insertItemsAsyncTask = new InsertItemsAsyncTask();
                 insertItemsAsyncTask.setDatabase(db);
-                // I'm giving a reference to THIS fragment to be the delegate. I'm telling the
-                // AsyncTask, that the fragment that I'm in right now, will be your delegate.
+
+                // Reference to this fragment to be the delegate. Telling the
+                // AsyncTask, that the current fragment will be the delegate.
                 insertItemsAsyncTask.setDelegate(ExploreFragment.this);
 
                 Item[] items2 = itemsList.toArray(new Item[itemsList.size()]);
@@ -104,31 +95,25 @@ public class ExploreFragment extends Fragment implements AsyncTaskInsertDelegate
         return view;
     }
 
-    // This method is required to be implemented, because we use the interface. This method is called
+    // Method is required to be implemented, because we use the interface. This method is called
     // from the AsyncTask once the task has completed. It gives the result back to this class so
     // that we can use the result to update our UI.
     @Override
     public void handleTaskResult(String result) {
         Toast.makeText(getContext(), "AsyncTask insert done", Toast.LENGTH_SHORT).show();
 
-        // In this case, this method is called after the Insert task is done. After inserting, I
-        // want to update my UI to reflect the new list of Books. To do this, I have made another
-        // AsyncTask that runs to get the Books from the database.
-        // So after my Insert AsyncTask finishes, this method will be called and it will start
-        // a second AsyncTask to get the books.
+        // In this case, this method is called after the Insert task is done. After inserting we
+        // want to update the UI to reflect the new list of items.
         GetItemsAsyncTask getItemsAsyncTask = new GetItemsAsyncTask();
         getItemsAsyncTask.setDatabase(NasaItemsDb.getInstance(getContext()));
         getItemsAsyncTask.setDelegate(this);
         getItemsAsyncTask.execute();
     }
 
-    // This is a method for the second interface. This Fragment can be a delegate for two different
-    // AsyncTasks that return different types of results, because I implement the two interfaces.
     @Override
     public void handleTaskGetResult(List<Item> items) {
-        // When the get AsyncTask is done, it'll return to me the list of books. Then I just update
-        // the UI.
         ArrayList<Item> syncList = new ArrayList<>(items);
+        //Async did not return a list of items for some reason so reverting back to functioning arraylist
         //exploreImagesAdapter.setData(syncList);
         //recyclerView.setAdapter(exploreImagesAdapter);
     }

@@ -24,7 +24,7 @@ public class User {
 
     }
 
-
+    //new user constructor
     public User(@NonNull  String username, String password, int score, int avatar) {
         this.username = username;
         this.password = password;
@@ -64,6 +64,7 @@ public class User {
         this.avatar = avatar;
     }
 
+    //toString to grab user info
     @Override
     public String toString() {
         return "Users{" +

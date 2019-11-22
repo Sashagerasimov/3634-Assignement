@@ -1,12 +1,10 @@
 package com.example.a3634_assigment.Fragments;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a3634_assigment.Adapters.PlanetAdapter;
-import com.example.a3634_assigment.Database.PlanetBank;
-import com.example.a3634_assigment.Database.SessionInfo;
+import com.example.a3634_assigment.Databases.PlanetBank;
+import com.example.a3634_assigment.Databases.SessionInfo;
 import com.example.a3634_assigment.R;
 
 public class LearnFragment extends Fragment {
@@ -96,6 +94,4 @@ public class LearnFragment extends Fragment {
         return view;
 
     }
-
-
 }

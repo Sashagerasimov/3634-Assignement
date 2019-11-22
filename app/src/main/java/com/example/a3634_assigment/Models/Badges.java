@@ -1,16 +1,5 @@
 package com.example.a3634_assigment.Models;
 
-import android.app.Dialog;
-
-import android.content.Context;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-
-
 public class Badges {
 
     private int badgeID;
@@ -58,6 +47,4 @@ public class Badges {
                 ", icon=" + icon +
                 '}';
     }
-
-
 }
