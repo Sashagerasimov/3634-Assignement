@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginBottom="5dp"
-    android:layout_marginTop="5dp"
-    android:background="#673AB7"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="#33FFFFFF"
+    app:cardBackgroundColor="#BFFFFFFF"
     app:cardCornerRadius="1dp"
     app:contentPadding="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#80673AB7">
+        android:background="#33FFFFFF">
 
         <TextView
             android:id="@+id/planet_name"

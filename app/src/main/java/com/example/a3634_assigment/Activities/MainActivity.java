@@ -1,6 +1,7 @@
 package com.example.a3634_assigment.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
         //instantiates database once activity opens
         SessionInfo.createDB(this);
 
@@ -72,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, RegisterActivity.class);
                 context.startActivity(intent);
+                finish();
             }
         });
 

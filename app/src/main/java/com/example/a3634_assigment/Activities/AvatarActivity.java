@@ -1,5 +1,6 @@
 package com.example.a3634_assigment.Activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -25,6 +26,9 @@ public class AvatarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avatar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
+
         avatarSample = findViewById(R.id.sample);
         usernameSample = findViewById(R.id.usernameSample);
 
@@ -70,5 +74,6 @@ public class AvatarActivity extends AppCompatActivity {
         //takes user to Main Page/Dashboard
         Intent intent = new Intent(AvatarActivity.this, DashboardActivity.class);
         startActivity(intent);
+        finish();
     }
 }

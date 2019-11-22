@@ -47,15 +47,17 @@ public class ReadFragment extends Fragment {
         final String wikiUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+PlanetActivity.name+"%20(planet)";
 
         Context context = getContext();
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        final RequestQueue requestQueue = Volley.newRequestQueue(context);
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String string = (response.substring(response.lastIndexOf("extract")+10,response.length()-5));
                 string = string.replace("\\n", "\n\n");
+                string = string.replaceAll("\\(.*?\\)", "");
                 description.setText(string);
 
+                requestQueue.stop();
             }
         };
 

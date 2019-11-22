@@ -1,15 +1,28 @@
 
 package com.example.a3634_assigment.Models.NasaImages;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
 import java.util.List;
+
+import com.example.a3634_assigment.Database.Converters;
+import com.example.a3634_assigment.Database.ConvertersTwo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity
 public class Item {
 
+    @PrimaryKey@NonNull
+    @TypeConverters(Converters.class)
     @SerializedName("data")
     @Expose
     private List<Datum> data = null;
+    @TypeConverters(ConvertersTwo.class)
     @SerializedName("links")
     @Expose
     private List<Link> links = null;

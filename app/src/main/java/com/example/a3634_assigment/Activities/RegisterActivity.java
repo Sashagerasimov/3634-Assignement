@@ -1,5 +1,6 @@
 package com.example.a3634_assigment.Activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -33,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
 
         //link widgets to xml
         newUsername = findViewById(R.id.newUsername);
@@ -57,15 +60,18 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (newPassword2.getEditText().getText().toString().equals(newPassword.getEditText().getText().toString()) == false){
             Toast.makeText(getApplicationContext(), "Password does not match!", Toast.LENGTH_SHORT).show();
         }
-
-        else {
+            if (intent != null) {
                 startActivity(intent);
+                finish();
+            } else {
+                System.out.println("hello");
             }
         }
 
         public void backToLogin(View view){
             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
 
 
@@ -74,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
         public void ignoreRegister(View view){
             Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
