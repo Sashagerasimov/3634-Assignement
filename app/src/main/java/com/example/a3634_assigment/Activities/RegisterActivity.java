@@ -49,11 +49,14 @@ public class RegisterActivity extends AppCompatActivity {
         if (newUsername.getEditText().getText().toString().equals("")) {
             // Missing Username Field
             Toast.makeText(getApplicationContext(), "Username field empty!", Toast.LENGTH_SHORT).show();
+            intent = null;
         } else if (newPassword.getEditText().getText().toString().equals("")) {
             // Missing Password Field
             Toast.makeText(getApplicationContext(), "Password Field empty!", Toast.LENGTH_SHORT).show();
+            intent = null;
         } else if (newPassword2.getEditText().getText().toString().equals(newPassword.getEditText().getText().toString()) == false){
             Toast.makeText(getApplicationContext(), "Password does not match!", Toast.LENGTH_SHORT).show();
+            intent = null;
         }
             if (intent != null) {
                 startActivity(intent);
@@ -68,8 +71,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-
-
 
     //ignoring register - for test purposes only
         public void ignoreRegister(View view){

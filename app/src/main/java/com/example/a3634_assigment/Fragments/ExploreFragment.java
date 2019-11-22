@@ -95,13 +95,8 @@ public class ExploreFragment extends Fragment implements AsyncTaskInsertDelegate
         return view;
     }
 
-    // Method is required to be implemented, because we use the interface. This method is called
-    // from the AsyncTask once the task has completed. It gives the result back to this class so
-    // that we can use the result to update our UI.
     @Override
     public void handleTaskResult(String result) {
-        Toast.makeText(getContext(), "AsyncTask insert done", Toast.LENGTH_SHORT).show();
-
         // In this case, this method is called after the Insert task is done. After inserting we
         // want to update the UI to reflect the new list of items.
         GetItemsAsyncTask getItemsAsyncTask = new GetItemsAsyncTask();

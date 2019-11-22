@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 // Missing Username Field
                 else if (username.getEditText().getText().toString().equals("")) {
-                    username.setError("Username field empty!");
+                    username.setError("");
                 }
                 // Missing Password Field
                 else if (password.getEditText().getText().toString().equals("")) {
-                    password.setError("Password field empty!");
+                    password.setError("");
                 }
                 //username and password match with what is kept in database
                 else if (loginUser.getPassword().equals(password.getEditText().getText().toString())) {

@@ -9,7 +9,7 @@ public class SampleData {
 
     public static void createSampleUsers(){
         List<User> sampleUsers = new ArrayList<>();
-        sampleUsers.add(new User("gavin", "password", 700, 1));
+        sampleUsers.add(new User("Gavin", "password", 1000, 1));
 
         SessionInfo.mUserDatabase.userDao().insertAll(sampleUsers);
     }

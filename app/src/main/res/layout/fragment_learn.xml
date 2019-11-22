@@ -28,7 +28,7 @@
             android:gravity="center"
             android:padding="8dp"
             android:text="Earn X more points to unlock Level X!"
-            android:textSize="14sp"></TextView>
+            android:textSize="18sp"></TextView>
 
 
     </androidx.cardview.widget.CardView>
@@ -36,12 +36,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/planet_rv"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/cardView"
+        android:paddingBottom="100dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"></androidx.recyclerview.widget.RecyclerView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
