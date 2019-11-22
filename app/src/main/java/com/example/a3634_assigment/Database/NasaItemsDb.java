@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.example.a3634_assigment.Models.NasaImages.Item;
 
-@Database(entities = {Item.class}, version = 1)
+@Database(entities = {Item.class}, version = 1, exportSchema = false)
 public abstract class NasaItemsDb extends RoomDatabase {
     public abstract NasaItemsDao nasaItemsDao();
 

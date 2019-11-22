@@ -38,7 +38,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         //sets up side burger menu
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //toolbar.setBackground(getResources().getDrawable(R.drawable.navbg));
+        toolbar.setBackground(getResources().getDrawable(R.drawable.gradient));
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);

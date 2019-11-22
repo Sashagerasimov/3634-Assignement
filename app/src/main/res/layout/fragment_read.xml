@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/learnbg"
+        android:alpha="0.1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
@@ -30,6 +42,7 @@
                 android:paddingRight="20dp"
                 android:paddingBottom="10dp"
                 android:text="title"
+                android:textColor="#BF000000"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -44,21 +57,25 @@
                 android:paddingEnd="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
+                android:lineSpacingExtra="10dp"
                 android:text="Loading..."
+                android:textColor="#BF000000"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/wiki_link"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:paddingStart="20dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
                 android:paddingRight="20dp"
-                android:paddingBottom="20dp"
+                android:paddingBottom="30dp"
                 android:text="@string/wiki"
-                android:textStyle="italic" />
+                android:textColor="#BF000000"
+                android:textStyle="bold|italic" />
 
         </LinearLayout>
     </ScrollView>

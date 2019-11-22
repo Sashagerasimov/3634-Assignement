@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/learnbg"
+        android:alpha="0.1">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/image_rv"
         android:layout_width="match_parent"

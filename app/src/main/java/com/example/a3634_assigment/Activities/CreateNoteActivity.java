@@ -1,5 +1,6 @@
 package com.example.a3634_assigment.Activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class CreateNoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
         setContentView(R.layout.activity_create_note);
 
         noteTitle = findViewById(R.id.title);
@@ -50,6 +53,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 Toast.makeText(CreateNoteActivity.this, "Note created!", Toast.LENGTH_SHORT).show();
 
                 SessionInfo.mNotesDatabase.notesDao().insertOneNote(object);
+                NotesFragment.notesAdapter.notifyDataSetChanged();
                 finish();
 
             }
